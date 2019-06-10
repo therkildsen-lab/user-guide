@@ -11,3 +11,5 @@
 **write a short intro of the data processing workflow**
 
 **check the behavior of overlapping clipping**
+
+**programs**: ask cbsu people, or install under /wordkdir/programs
