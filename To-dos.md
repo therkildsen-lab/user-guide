@@ -9,3 +9,5 @@
 **finish the programs needed to be installled**
 
 **write a short intro of the data processing workflow**
+
+**check the behavior of overlapping clipping**
