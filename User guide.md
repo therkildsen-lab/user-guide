@@ -98,7 +98,12 @@ To check how much free space is left:
 df -h /workdir/
 
 **To dos**:
+
 **Rstudio server**: https://biohpc.cornell.edu/lab/userguide.aspx?a=software&i=266#c
+
+**Github GUI and Rstudio**:
+
+**Github on the server**: use commmand line to pull, commit, and push
 
 
 
