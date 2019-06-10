@@ -8,3 +8,5 @@
 
 **R scripts**: 
 
+**Analysis log**: Use a github formatted markdown file to keep track of your analysis logs. You can use Rmd to generate this markdown file. 
+
