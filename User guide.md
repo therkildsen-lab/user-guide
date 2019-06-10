@@ -105,6 +105,8 @@ df -h /workdir/
 
 **Github on the server**: use commmand line to pull, commit, and push
 
+**General github userguide**
+
 
 
 
