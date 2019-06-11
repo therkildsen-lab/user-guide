@@ -13,3 +13,7 @@
 **check the behavior of overlapping clipping**
 
 **programs**: ask cbsu people, or install under /wordkdir/programs
+
+**good coding practices**: link to a paper
+
+**data backup**
