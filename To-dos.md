@@ -17,3 +17,5 @@
 **good coding practices**: link to a paper
 
 **data backup**
+
+**Tips for including graphics**
