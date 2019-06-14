@@ -12,32 +12,27 @@ Please add helpful tips to this list!
   -  [How do I transfer data?](#transfer)
   -  [How do I check memory usage?](#check_memory)
   -  [How do I check the disk usage?](#disk_usage) 
-
 - [Data backup](#backup)
   - [Where should we store the backup files?](#backup_directory)
   - [What should be backed up?](#backup_items)
   - [When should files be backed up?](#backup_timing)
   - [What should be deleted, and when?](#backup_delete)
   - [What are the practices that should be avoided?](#backup_avoid)
-
 - [Running programs on the server](#programs)
   -  [Where do I run programs?](#run_program)   
   -  [How do I install programs?](#install_program)        
   -  [How do I run programs in the background?](#nohup)    
   -  [How do I make scripts executable?](#executable)    
-  -  [How do I control the number of threads a program uses?](#thread)
-    
+  -  [How do I control the number of threads a program uses?](#thread)   
 - [Using R on server](#R)
   -  [How to run RStudio on the server?](#rstudio)    
   -  [How to avoid plotting figures all over again every time when knitting an Rmd file?](#include_graphics)
-
 - [Using GitHub on server](#github)
   - [How can I skip logging in each time that I use GitHub?](#github_login)
-
 - [Lab conventions](#conventions)
   - [How do we name files, directories, objects, functions, and others?](#naming)
   - [How do we keep our analysis logs?](#analysis_log)
-  
+ 
 <a name="basics"/>
 
 ## Basic server usage
@@ -299,15 +294,15 @@ Run `git config --global credential.helper "cache --timeout=3600"`. You can modi
 
 ### How do we name files, directories, objects, functions, and others?
 
-**GitHub repos**: kebab (dashes in place of spaces)
+GitHub repos: kebab (dashes in place of spaces)
 
-**Directories on the server**: snake-case (all lowercase with _ in place of spaces)
+Directories on the server: snake-case (all lowercase with _ in place of spaces)
 
-**Shell scripts**: all uppercase for variable names, snake-case for almost everything else
+Shell scripts: all uppercase for variable names, snake-case for almost everything else
 
-**R scripts**: snake-case for object and function names
+R scripts: snake-case for object and function names
 
-**Others**: almost all snake-case
+Others: snake-case for almost everything else
 
 <a name="analysis_log"/>
 
