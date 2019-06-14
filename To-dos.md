@@ -4,8 +4,6 @@
 
 **check the behavior of overlapping clipping**
 
-**good coding practices**: link to a paper
-
 **Github GUI and Rstudio**:
 
 **Github on the server**: use commmand line to pull, commit, and push
