@@ -5,53 +5,33 @@ Please add helpful tips to this list!
 ## Table of Contents
 
 - [Basic server usage](#basics)
-
-  -  [Where can I get more information?](#more_info)
-    
-  -  [How do I get a CBSU user account?](#account)
-    
-  -  [How do I access the server from an off-campus location?](#off_campus)
-    
-  -  [How do I access the server?](#access)
-  
+  -  [Where can I get more information?](#more_info)    
+  -  [How do I get a CBSU user account?](#account)    
+  -  [How do I access the server from an off-campus location?](#off_campus)    
+  -  [How do I access the server?](#access)  
   -  [How do I transfer data?](#transfer)
-
   -  [How do I check memory usage?](#check_memory)
+  -  [How do I check the disk usage?](#disk_usage) 
 
-  -  [How do I check the disk usage?](#disk_usage)
- 
 - [Data backup](#backup)
-
   - [Where should we store the backup files?](#backup_directory)
-
   - [What should be backed up?](#backup_items)
-
   - [When should files be backed up?](#backup_timing)
-
   - [What should be deleted, and when?](#backup_delete)
-
   - [What are the practices that should be avoided?](#backup_avoid)
 
 - [Running programs on the server](#programs)
-
-  -  [Where do I run programs?](#run_program)
-    
-  -  [How do I install programs?](#install_program)
-        
-  -  [How do I run programs in the background?](#nohup)
-    
-  -  [How do I make scripts executable?](#executable)
-    
+  -  [Where do I run programs?](#run_program)   
+  -  [How do I install programs?](#install_program)        
+  -  [How do I run programs in the background?](#nohup)    
+  -  [How do I make scripts executable?](#executable)    
   -  [How do I control the number of threads a program uses?](#thread)
     
 - [Using R on server](#R)
-
-  -  [How to run RStudio on the server?](#rstudio)
-    
+  -  [How to run RStudio on the server?](#rstudio)    
   -  [How to avoid plotting figures all over again every time when knitting an Rmd file?](#include_graphics)
 
 - [Using GitHub on server](#github)
-
   - [How can I skip logging in each time that I use GitHub?](#github_login)
 
 <a name="basics"/>
