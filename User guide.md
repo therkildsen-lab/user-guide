@@ -34,6 +34,10 @@ Please add helpful tips to this list!
 - [Using GitHub on server](#github)
   - [How can I skip logging in each time that I use GitHub?](#github_login)
 
+- [Lab conventions](#conventions)
+  - [How do we name files, directories, objects, functions, and others?](#naming)
+  - [How do we keep our analysis logs?](#analysis_log)
+  
 <a name="basics"/>
 
 ## Basic server usage
@@ -216,7 +220,7 @@ There are many programs installed system-wide. A list of software and details on
 
 You can request installation of software not listed on the CBSU website using the Contact Us link, but installation may take a few days. 
 
-You may also install programs locally yourself. Please always intall new programs under `/workdir/programs/`. You should also keep track of the version number of the program by first creating a new directory with the program name and version number, and install the program in this directory.  
+You may also install programs locally yourself. Please always intall new programs under `/workdir/programs/`. You should also **keep track of the version number of the program** by first creating a new directory with the program name and version number, and install the program in this directory.  
 
 <a name="nohup"/>
 
@@ -286,3 +290,27 @@ You can set `eval=F` in the code block, run it manually, and save the figure to 
 ### How can I skip logging in each time that I use GitHub?
 
 Run `git config --global credential.helper "cache --timeout=3600"`. You can modify the number after `timeout=`. `timeout=3600`, for example, will save your login information for one hour.
+
+<a name="conventions"/>
+
+## Lab conventions
+
+<a name="naming"/>
+
+### How do we name files, directories, objects, functions, and others?
+
+**GitHub repos**: kebab (dashes in place of spaces)
+
+**Directories on the server**: snake-case (all lowercase with _ in place of spaces)
+
+**Shell scripts**: all uppercase for variable names, snake-case for almost everything else
+
+**R scripts**: snake-case for object and function names
+
+**Others**: almost all snake-case
+
+<a name="analysis_log"/>
+
+### How do we keep our analysis logs?
+
+We use a github formatted markdown file to keep track of our analysis pipeline. You can use Rmd to generate this markdown file. 
