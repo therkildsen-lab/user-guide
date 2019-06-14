@@ -19,7 +19,19 @@ Please add helpful tips to this list!
   -  [How do I check memory usage?](#check_memory)
 
   -  [How do I check the disk usage?](#disk_usage)
-  
+ 
+- [Data backup](#backup)
+
+  - [Where should we store the backup files?](#backup_directory)
+
+  - [What should be backed up?](#backup_items)
+
+  - [When should files be backed up?](#backup_timing)
+
+  - [What should be deleted, and when?](#backup_delete)
+
+  - [What are the practices that should be avoided?](#backup_avoid)
+
 - [Running programs on the server](#programs)
 
   -  [Where do I run programs?](#run_program)
@@ -145,6 +157,66 @@ To check how much free space is left:
 
 `df -h /workdir/`
 
+<a name="backup"/>
+
+## Data backup
+
+<a name="backup_directory"/>
+
+### Where should we store the backup files?
+
+For sequencing data and other large files (>30MB), you should use `/workdir/backup/`. 
+
+For small files such as scripts, markdown files, certain figures, and others, you can store them under your project directory, which should also be a GitHub repo. You can then use GitHub to back up these files. 
+
+For sample metadata, you should use lab Google Drive to back them up.
+
+<a name="backup_items"/>
+
+### What should be backed up?
+
+1. Zipped raw fastq files (essential)
+
+2. Zipped ready to map (adapter trimmed and renamed (demultiplexed if applicable) (optional)
+
+3. Raw bam files (unmapped reads removed, but not filtered for mapping quality etc). Only save `.bam` files here, never `.sam`. When we have multiple fastq files per individual, map first, then merge bams (optional)
+
+4. Realigned, filtered bam files (following indel re-alignment, filtering on mapping quality, removal of duplicates). If there are multiple bam files per individual, merge before cleaning, esp. before removing duplicates.
+
+5. Sample lists (needed for keeping track of the bam files) - put on Github
+
+6. SNP lists (lists of called SNP sets used for downstream analysis) - put on Github
+
+7. Major result files used for downstream analysis (e.g. mafs files) (optional)
+
+8. Ones that take a long time to run and that you’ll need to re-use
+
+9. All scripts used to process the data. There should be one master scripts that will run the full analysis pipeline (essential), but all intermediate scripts should be saved as well.
+
+<a name="backup_timing"/>
+
+### When should files be backed up?
+
+You should back up the raw fastq files and sample metadata as soon as possible.  
+
+You should back up the analysis scripts often while you are working on them. 
+
+You can start backing up the other files as long as moving them do not interfere with your workflow. Do note that you should avoid reading and (especially) writing under `/workdir/backup/` as much as possible. 
+
+<a name="backup_delete"/>
+
+### What should be deleted, and when?
+
+<a name="backup_avoid"/>
+
+### What are the practices that should be avoided?
+
+Don’t move things around or re-name files unless there is reason to (it’s ok to do if there is)
+
+Don’t work directly in the backup folder, i.e. don’t have your mapping program write sam files into the backup folder and then convert. Do that in your working directory and then move over the bam files to be backed up. 
+
+Don't store files in multiple places
+
 <a name="programs"/>
 
 ## Running programs on the server
@@ -234,11 +306,3 @@ You can set `eval=F` in the code block, run it manually, and save the figure to 
 ### How can I skip logging in each time that I use GitHub?
 
 Run `git config --global credential.helper "cache --timeout=3600"`. You can modify the number after `timeout=`. `timeout=3600`, for example, will save your login information for one hour.
-
-
-
-
-
-
-
-
