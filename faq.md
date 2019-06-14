@@ -32,7 +32,8 @@ Please add helpful tips to this list!
 - [Lab conventions](#conventions)
   - [How do we name files, directories, objects, functions, and others?](#naming)
   - [How do we keep our analysis logs?](#analysis_log)
- 
+  - [What are some good coding practices recommended by the lab?](#good_coding)
+  
 <a name="basics"/>
 
 ## Basic server usage
@@ -309,3 +310,10 @@ Others: snake-case for almost everything else
 ### How do we keep our analysis logs?
 
 We use a github formatted markdown file to keep track of our analysis pipeline. You can use Rmd to generate this markdown file. 
+
+<a name="good_coding"/>
+
+### What are some good coding practices recommended by the lab?
+
+Please read https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745 and https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510
+
