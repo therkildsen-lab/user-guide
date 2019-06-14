@@ -13,22 +13,24 @@ Please add helpful tips to this list!
   -  [How do I access the server from an off-campus location?](#off_campus)
     
   -  [How do I access the server?](#access)
-    
+  
+  -  [How do I transfer data?](#transfer)
+
+  -  [How do I check memory usage?](#check_memory)
+
+  -  [How do I check the disk usage?](#disk_usage)
+  
+- [Running programs on the server](#programs)
+
   -  [Where do I run programs?](#run_program)
     
   -  [How do I install programs?](#install_program)
-    
-  -  [How do I check memory usage?](#check_memory)
-    
+        
   -  [How do I run programs in the background?](#nohup)
     
   -  [How do I make scripts executable?](#executable)
     
   -  [How do I control the number of threads a program uses?](#thread)
-    
-  -  [How do I transfer data?](#transfer)
-    
-  -  [How do I check the disk usage?](#disk_usage)
     
 - [Using R on server](#R)
 
@@ -97,6 +99,56 @@ Connect to server:
 
 Once logged in, you will be in your network-mounted /home/yournetid/ directory. We also have a shared home directory for the lab with 2TB of backed up storage in `/home/backup/`. This is where we have been backing up important files (fastq and bam files, scripts, etc.) so far. 
 
+<a name="transfer"/>
+
+### How do I transfer data?
+
+To transfer files between your local computer and the server (good for <1-2 GB files):
+
+1.	Connect to VPN if not on campus
+
+2.	Open a new terminal window or tab (i.e. not a terminal already connected to the server)
+
+3.	Use rsync to transfer data from the server to your computer with the command:
+
+`rsync -av -progress -e ssh yournetid@cbsunt246.tc.cornell.edu:/workdir/Path/To/Your/File.txt /Path/To/Your/Local/Directory/`
+
+4.	to transfer data from your computer to the server, use:
+
+`rsync -av -progress /Path/To/Your/Local/File/ -e ssh yournetid@cbsunt246.tc.cornell.edu:/workdir/Path/To/Your/Directory/`
+
+5.	Use wildcards `*` to sync lots of files, or you can sync a whole directory. Rsync will only sync files that have changed, and won’t re-write ones that haven’t.
+
+If you have lots of files, big files, or need to transfer between two remote servers, use Globus. See https://cbsu.tc.cornell.edu/lab/doc/Globus_at_BioHPC_Lab.pdf
+
+<a name="check_memory"/>
+
+### How do I check memory usage?
+
+Keep an eye on memory and node usage with the command: 
+
+`htop`
+
+A window showing jobs on all 56 nodes and total memory usage will appear. (Be careful not to exceed the 252GB memory, or the server will crash.) Close the window with Control+c. You can also list jobs that are running but aren’t taking up CPU (e.g. crashed jobs) using: 
+
+`ps –ef | grep yournetid`
+
+<a name="disk_usage"/>
+
+### How do I check the disk usage?
+
+To check how much space each directory on the /workdir/ is taking up:
+
+`du -sh /workdir/*` 
+
+To check how much free space is left:
+
+`df -h /workdir/`
+
+<a name="programs"/>
+
+## Running programs on the server
+
 <a name="run_program"/>
 
 ### Where do I run programs?
@@ -113,18 +165,6 @@ There are many programs installed system-wide. A list of software and details on
 You can request installation of software not listed on the CBSU website using the Contact Us link, but installation may take a few days. 
 
 You may also install programs locally yourself. Please always intall new programs under `/workdir/programs/`. You should also keep track of the version number of the program by first creating a new directory with the program name and version number, and install the program in this directory.  
-
-<a name="check_memory"/>
-
-### How do I check memory usage?
-
-Keep an eye on memory and node usage with the command: 
-
-`htop`
-
-A window showing jobs on all 56 nodes and total memory usage will appear. (Be careful not to exceed the 252GB memory, or the server will crash.) Close the window with Control+c. You can also list jobs that are running but aren’t taking up CPU (e.g. crashed jobs) using: 
-
-`ps –ef | grep yournetid`
 
 <a name="nohup"/>
 
@@ -157,43 +197,9 @@ For program that automatically use all available nodes, you can limit the number
 
 `export OMP_NUM_THREADS=8`
 
-<a name="transfer"/>
-
-### How do I transfer data?
-
-To transfer files between your local computer and the server (good for <1-2 GB files):
-
-1.	Connect to VPN if not on campus
-
-2.	Open a new terminal window or tab (i.e. not a terminal already connected to the server)
-
-3.	Use rsync to transfer data from the server to your computer with the command:
-
-`rsync -av -progress -e ssh yournetid@cbsunt246.tc.cornell.edu:/workdir/Path/To/Your/File.txt /Path/To/Your/Local/Directory/`
-
-4.	to transfer data from your computer to the server, use:
-
-`rsync -av -progress /Path/To/Your/Local/File/ -e ssh yournetid@cbsunt246.tc.cornell.edu:/workdir/Path/To/Your/Directory/`
-
-5.	Use wildcards `*` to sync lots of files, or you can sync a whole directory. Rsync will only sync files that have changed, and won’t re-write ones that haven’t.
-
-If you have lots of files, big files, or need to transfer between two remote servers, use Globus. See https://cbsu.tc.cornell.edu/lab/doc/Globus_at_BioHPC_Lab.pdf
-
-<a name="disk_usage"/>
-
-### How do I check the disk usage?
-
-To check how much space each directory on the /workdir/ is taking up:
-
-`du -sh /workdir/*` 
-
-To check how much free space is left:
-
-`df -h /workdir/`
-
 <a name="R"/>
 
-## Using R on server]
+## Using R on the server
 
 <a name="rstudio"/>
 
@@ -221,7 +227,7 @@ You can set `eval=F` in the code block, run it manually, and save the figure to 
 
 <a name="github"/>
 
-## Using GitHub on server
+## Using GitHub on the server
 
 <a name="github_login"/>
 
