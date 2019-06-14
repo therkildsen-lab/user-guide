@@ -1,36 +1,52 @@
 # FAQs for using the Therkildsen lab CBSU server
 
-Please add helpful tips to this list! To hyperlink your new question to the table of contents, write a question and answer, then highlight the question and click Heading 1 in the Home tab in Word. Then click on the Table of Contents box and choose Update.
+Please add helpful tips to this list!
 
 ## Table of Contents
 
-[Where can I get more information?](#more_info)
+- [Basic server usage](#basics)
 
-[How do I get a CBSU user account?](#account)
+  -  [Where can I get more information?](#more_info)
+    
+  -  [How do I get a CBSU user account?](#account)
+    
+  -  [How do I access the server from an off-campus location?](#off_campus)
+    
+  -  [How do I access the server?](#access)
+    
+  -  [Where do I run programs?](#run_program)
+    
+  -  [How do I install programs?](#install_program)
+    
+  -  [How do I check memory usage?](#check_memory)
+    
+  -  [How do I run programs in the background?](#nohup)
+    
+  -  [How do I make scripts executable?](#executable)
+    
+  -  [How do I control the number of threads a program uses?](#thread)
+    
+  -  [How do I transfer data?](#transfer)
+    
+  -  [How do I check the disk usage?](#disk_usage)
+    
+- [Using R on server](#R)
 
-[How do I access the server from an off-campus location?](#off_campus)
+  -  [How to run RStudio on the server?](#rstudio)
+    
+  -  [How to avoid plotting figures all over again every time when knitting an Rmd file?](#include_graphics)
 
-[How do I access the server?](#access)
+- [Using GitHub on server](#github)
 
-[Where do I run programs?](#run_program)
+  - [How can I skip logging in each time that I use GitHub?](#github_login)
 
-[How do I install programs?](#install_program)
+<a name="basics"/>
 
-[How do I check memory usage?](#check_memory)
-
-[How do I run programs in the background?](#nohup)
-
-[How do I make scripts executable?](#executable)
-
-[How do I control the number of threads a program uses?](#thread)
-
-[How do I transfer data?](#transfer)
-
-[How do I check the disk usage?](#disk_usage)
+## Basic server usage
 
 <a name="more_info"/>
 
-## Where can I get more information?
+### Where can I get more information?
 
 Most of the guides below apply to people who purchase hourly credits and don’t have their own physical servers, but there is still some useful information in these links:
 
@@ -46,7 +62,7 @@ http://cbsu.tc.cornell.edu/lab/userguide.aspx?a=storageguide
 
 <a name="account"/>
 
-## How do I get a CBSU user account?
+### How do I get a CBSU user account?
 
 If you have a user account already created, you need to set your password:
 https://cbsu.tc.cornell.edu/lab/labpassreset.aspx
@@ -55,7 +71,7 @@ Type in your user id (should be the same as your NetID) and click submit. A link
 
 <a name="off_campus"/>
 
-## How do I access the server from an off-campus location?
+### How do I access the server from an off-campus location?
 
 To access server from off-campus:
 
@@ -69,7 +85,7 @@ To access server from off-campus:
 
 <a name="access"/>
 
-## How do I access the server?
+### How do I access the server?
 
 Connect to server:
 
@@ -83,26 +99,28 @@ Once logged in, you will be in your network-mounted /home/yournetid/ directory. 
 
 <a name="run_program"/>
 
-## Where do I run programs?
+### Where do I run programs?
 
 All processes (except really tiny jobs) must be done on the local server, /workdir/. To connect to the local server:
 `cd /workdir/`
 
 <a name="install_program"/>
 
-## How do I install programs?
+### How do I install programs?
 
 There are many programs installed system-wide. A list of software and details on how to use it, see https://cbsu.tc.cornell.edu/lab/labsoftware.aspx. 
 
 You can request installation of software not listed on the CBSU website using the Contact Us link, but installation may take a few days. 
 
-You may also install programs locally yourself (we have been installing them in /home/nt246_0001/ or /home/yournetid/). 
+You may also install programs locally yourself. Please always intall new programs under `/workdir/programs/`. You should also keep track of the version number of the program by first creating a new directory with the program name and version number, and install the program in this directory.  
 
 <a name="check_memory"/>
 
-## How do I check memory usage?
+### How do I check memory usage?
 
-Keep an eye on memory and node usage with the command: `htop`
+Keep an eye on memory and node usage with the command: 
+
+`htop`
 
 A window showing jobs on all 56 nodes and total memory usage will appear. (Be careful not to exceed the 252GB memory, or the server will crash.) Close the window with Control+c. You can also list jobs that are running but aren’t taking up CPU (e.g. crashed jobs) using: 
 
@@ -110,7 +128,7 @@ A window showing jobs on all 56 nodes and total memory usage will appear. (Be ca
 
 <a name="nohup"/>
 
-## How do I run programs in the background?
+### How do I run programs in the background?
 
 Run commands in the background (i.e. so that you can disconnect and the process will continue running) using nohup. For example, a process normally run with the command:
 
@@ -124,7 +142,7 @@ Output normally printed to the screen would be printed to logfile.nohup.
 
 <a name="executable"/>
 
-## How do I make scripts executable?
+### How do I make scripts executable?
 
 If you use shell scripts to run commands, make them executable with
 `chmod +x filename`
@@ -133,7 +151,7 @@ You can use `chmod` to change permissions on files as well. See `man chmod`.
 
 <a name="thread"/>
 
-## How do I control the number of threads a program uses?
+### How do I control the number of threads a program uses?
 
 For program that automatically use all available nodes, you can limit the number of nodes used with 
 
@@ -141,7 +159,7 @@ For program that automatically use all available nodes, you can limit the number
 
 <a name="transfer"/>
 
-## How do I transfer data?
+### How do I transfer data?
 
 To transfer files between your local computer and the server (good for <1-2 GB files):
 
@@ -163,7 +181,7 @@ If you have lots of files, big files, or need to transfer between two remote ser
 
 <a name="disk_usage"/>
 
-## How do I check the disk usage?
+### How do I check the disk usage?
 
 To check how much space each directory on the /workdir/ is taking up:
 
@@ -172,6 +190,45 @@ To check how much space each directory on the /workdir/ is taking up:
 To check how much free space is left:
 
 `df -h /workdir/`
+
+<a name="R"/>
+
+## Using R on server]
+
+<a name="rstudio"/>
+
+### How to run RStudio on the server?
+
+1. Run this command  to start RStudio server
+
+`/programs/rstudio_server/rstudio_start`
+
+2. From a brower on your laptop/desktop computer, go to 
+
+http://cbsunt246.biohpc.cornell.edu:8015
+
+Sometimes, you might need to reshresh the page once. Log in using your biohpc username and password
+
+3. If you want to stop the RStudio Server, using this command:
+
+`/programs/rstudio_server/rstudio_stop` 
+
+<a name="include_graphics"/>
+
+### How to avoid plotting figures all over again every time when knitting an Rmd file?
+
+You can set `eval=F` in the code block, run it manually, and save the figure to a file. Then, you can start a new code block, set `eval=T`, and use `include_graphics("path_to_the_figure")` to show the figure. Note that if you are knitting to a GitHub formatted md file, the figure needs to be pushed to GitHub as well for it to show up on the GitHub site. 
+
+<a name="github"/>
+
+## Using GitHub on server
+
+<a name="github_login"/>
+
+### How can I skip logging in each time that I use GitHub?
+
+Run `git config --global credential.helper "cache --timeout=3600"`. You can modify the number after `timeout=`. `timeout=3600`, for example, will save your login information for one hour.
+
 
 
 
