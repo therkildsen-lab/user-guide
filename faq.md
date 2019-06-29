@@ -28,6 +28,7 @@ Please add helpful tips to this list!
   -  [How to run RStudio on the server?](#rstudio)    
   -  [How to avoid plotting figures all over again every time when knitting an Rmd file?](#include_graphics)
 - [Using GitHub on server](#github)
+  - [What are some basic things I need to know to use GitHub on the server?](#github_basics)
   - [How can I skip logging in each time that I use GitHub?](#github_login)
 - [Lab conventions](#conventions)
   - [How do we name files, directories, objects, functions, and others?](#naming)
@@ -280,6 +281,12 @@ You can set `eval=F` in the code block, run it manually, and save the figure to 
 <a name="github"/>
 
 ## Using GitHub on the server
+
+<a name="github_basics"/>
+
+### What are some basic things I need to know to use GitHub on the server? 
+
+Check out this [cheat sheet] (https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). It has most of the information that you will need. 
 
 <a name="github_login"/>
 
