@@ -286,7 +286,7 @@ You can set `eval=F` in the code block, run it manually, and save the figure to 
 
 ### What are some basic things I need to know to use GitHub on the server? 
 
-Check out this [cheat sheet] (https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). It has most of the information that you will need. 
+Check out this [cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). It has most of the information that you will need. 
 
 <a name="github_login"/>
 
