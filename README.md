@@ -1,1 +1,5 @@
 # user-guide
+
+[Frequently asked questions](https://github.com/therkildsen-lab/user-guide/blob/master/faq.md)
+
+[To-do list](https://github.com/therkildsen-lab/user-guide/blob/master/to-dos.md)
