@@ -2,6 +2,4 @@
 
 **Put demultiplexing as a shell script**
 
-**check the behavior of overlapping clipping**
-
 **Github GUI and Rstudio**:
