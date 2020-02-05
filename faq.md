@@ -312,6 +312,8 @@ R scripts: snake-case for object and function names
 
 Others: snake-case for almost everything else
 
+![](https://pbs.twimg.com/media/ELuERYrU0AAI_7b?format=jpg&name=4096x4096)
+
 <a name="analysis_log"/>
 
 ### How do we keep our analysis logs?
