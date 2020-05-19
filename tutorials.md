@@ -32,13 +32,13 @@
 
 * [NTRES 6940: A brief intro to GitHub](https://github.com/nt246/NTRES6940-data-science/blob/master/lecture_notes/lesson2-rmarkdown-github.md#github-brief-intro--config) (and the resources linked within)
 
-* [NTRES 6940: Version control and the Git/GitHub workflow] (https://github.com/nt246/NTRES6940-data-science/blob/master/lecture_notes/lesson3-version-control.md) (and the resources linked within)
+* [NTRES 6940: Version control and the Git/GitHub workflow](https://github.com/nt246/NTRES6940-data-science/blob/master/lecture_notes/lesson3-version-control.md) (and the resources linked within)
 
 <br>
 
 ### Genome assembly
 
-* [MaSuRCA Quick Start Guide](https://github.com/alekseyzimin/masurca)
+* [MaSuRCA Quick Start Guide](https://github.com/alekseyzimin/masurca/blob/master/README.md)
 
 <br>
 
@@ -46,4 +46,4 @@
 
 * [Data Processing](https://github.com/therkildsen-lab/data-processing/blob/master/lcwgs_data_processing.md)
 
-* [Data Analysis](https://github.com/therkildsen-lab/data-processing/blob/master/lcwgs_data_processing.md)
+* [Data Analysis]https://github.com/therkildsen-lab/genomic-data-analysis/blob/master/lcwgs_data_analysis.md)
