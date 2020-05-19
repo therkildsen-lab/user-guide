@@ -1,4 +1,4 @@
-# user-guide
+# Therkildsen lab server and GitHub account user guide
 
 [Frequently asked questions](https://github.com/therkildsen-lab/user-guide/blob/master/faq.md)
 
