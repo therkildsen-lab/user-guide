@@ -3,9 +3,14 @@
 <br>
 
 ### Unix command line
-https://linuxconfig.org/bash-scripting-tutorial-for-beginners
-https://speciationgenomics.github.io/getting_used_to_unix/
-https://swcarpentry.github.io/shell-novice/
+
+* [Bash Scripting Tutorial for Beginners](https://linuxconfig.org/bash-scripting-tutorial-for-beginners)
+
+* [Speciation & Population Genomics: Getting used to Unix](https://speciationgenomics.github.io/getting_used_to_unix/)
+
+* [Software Carpentry: The Unix shell](https://swcarpentry.github.io/shell-novice/)
+
+* [Cornell CBSU Workshop: Linux for biologist](https://biohpc.cornell.edu/ww/1/Default.aspx?wid=109)
 
 <br>
 
