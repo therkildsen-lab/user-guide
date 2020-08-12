@@ -140,6 +140,21 @@ To check how much free space is left:
 
 <a name="backup"/>
 
+### How do I download files from NCBI's Short Read Archive (SRA)?
+
+Navigate to the SRA (https://trace.ncbi.nlm.nih.gov/Traces/sra/) and retreive the SRA run accession number: these are coded as SRR####### e.g., SRR7973881
+
+On the server, navigate to the backup directory (see below) or any directory where you would like to deposit the files
+
+Use the sra toolkit (installed on the server) to download files
+
+`fastq-dump --split-files --gzip SRR#######`
+
+--split-files splits paired-end reads, do not use this for single-end reads
+--gzip zips the read files upon downloading
+
+You need only to enter toe SRA accession as is, the sra toolkit will connect to NCBI automatically
+
 ## Data backup
 
 <a name="backup_directory"/>
