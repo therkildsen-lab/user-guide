@@ -34,6 +34,8 @@ Please add helpful tips to this list!
   - [How do we name files, directories, objects, functions, and others?](#naming)
   - [How do we keep our analysis logs?](#analysis_log)
   - [What are some good coding practices recommended by the lab?](#good_coding)
+- [Miscellaneous tips](#misc)
+  - [How do I download files from NCBI's Short Read Archive (SRA)?](#sra)
   
 <a name="basics"/>
 
@@ -139,21 +141,6 @@ To check how much free space is left:
 `df -h /workdir/`
 
 <a name="backup"/>
-
-### How do I download files from NCBI's Short Read Archive (SRA)?
-
-Navigate to the SRA (https://trace.ncbi.nlm.nih.gov/Traces/sra/) and retreive the SRA run accession number: these are coded as SRR####### e.g., SRR7973881
-
-On the server, navigate to the backup directory (see below) or any directory where you would like to deposit the files
-
-Use the sra toolkit (installed on the server) to download files
-
-`fastq-dump --split-files --gzip SRR#######`
-
---split-files splits paired-end reads, do not use this for single-end reads
---gzip zips the read files upon downloading
-
-You need only to enter toe SRA accession as is, the sra toolkit will connect to NCBI automatically
 
 ## Data backup
 
@@ -341,3 +328,23 @@ We use a github formatted markdown file to keep track of our analysis pipeline. 
 
 Please read https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745 and https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510
 
+<a name="misc"/>
+
+## Miscellaneous tips
+
+<a name="sra"/>
+
+### How do I download files from NCBI's Short Read Archive (SRA)?
+
+Navigate to the SRA (https://trace.ncbi.nlm.nih.gov/Traces/sra/) and retreive the SRA run accession number: these are coded as SRR####### e.g., SRR7973881
+
+On the server, navigate to the backup directory (see below) or any directory where you would like to deposit the files
+
+Use the sra toolkit (installed on the server) to download files
+
+`fastq-dump --split-files --gzip SRR#######`
+
+--split-files splits paired-end reads, do not use this for single-end reads
+--gzip zips the read files upon downloading
+
+You need only to enter toe SRA accession as is, the sra toolkit will connect to NCBI automatically
