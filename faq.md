@@ -24,6 +24,7 @@ Please add helpful tips to this list!
   -  [How do I run programs in the background?](#nohup)    
   -  [How do I make scripts executable?](#executable)    
   -  [How do I control the number of threads a program uses?](#thread)   
+  -  [How do I set the priority of a process?](#priority)   
 - [Using R on server](#R)
   -  [How to run RStudio on the server?](#rstudio)    
   -  [How to avoid plotting figures all over again every time when knitting an Rmd file?](#include_graphics)
@@ -252,6 +253,24 @@ For program that automatically use all available nodes, you can limit the number
 
 `export OMP_NUM_THREADS=8`
 
+<a name="priority"/>
+
+### How do I set the priority of a process?
+
+To change the CPU usage of a program or command (i.e., give the process more or less CPU time than other processes), you can set the priority using the `nice` command, or `renice` if the process is already running.
+
+* The priority of a process (`PR` or `PRI`) and its niceness value (`NI`) can be seen using `top` or `htop`.  
+* `PR` or `PRI` is the process’s actual priority used by the Linux kernel to schedule a task.  
+* `NI` is the niceness value that the user can set to control the priority of a process.  
+* `NI` ranges from -20 (highest priority value) to 19 (lowest priority value), with a default of 0.  
+* Any user may decrease the priority of a process, but root permissions are required to increase priority. By increasing the niceness of your process, it will decrease the priority and get less amount of CPU compared to processes with lower niceness values.  
+
+If you are running some shell script *myscript.sh*, you can start the process with the niceness value in the command: **`nice -n 10 sh myscript.sh &`** 
+
+To change the niceness value of a running process, use the process ID and run **`renice -n nice_val -p [pid]`**  
+
+To change the niceness values of all processes by a user, run **`renice -n nice_val -u [user]`**  
+
 <a name="R"/>
 
 ## Using R on the server
@@ -264,7 +283,7 @@ For program that automatically use all available nodes, you can limit the number
 
 `/programs/rstudio_server/rstudio_start`
 
-2. From a brower on your laptop/desktop computer, go to 
+2. From a browser on your laptop/desktop computer, go to 
 
 http://cbsunt246.biohpc.cornell.edu:8015
 
