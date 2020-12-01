@@ -21,7 +21,8 @@ Please add helpful tips to this list!
 - [Running programs on the server](#programs)
   -  [Where do I run programs?](#run_program)   
   -  [How do I install programs?](#install_program)        
-  -  [How do I run programs in the background?](#nohup)    
+  -  [How do I run programs in the background?](#nohup)
+  -  [How do I kill a job?](#kill)
   -  [How do I make scripts executable?](#executable)    
   -  [How do I control the number of threads a program uses?](#thread)   
   -  [How do I set the priority of a process?](#priority)   
@@ -235,6 +236,14 @@ would be run with:
 `nohup program argument1 argument2 >& logfile.nohup &`
 
 Output normally printed to the screen would be printed to logfile.nohup.
+
+<a name="kill"/>
+
+### How do I kill a job?
+
+Get the job ID using 'htop' (this shows all jobs being run; look for the PIDs matching your username). To see only the job numbers that *you* are currently running, type 'pgrep -u <username>'
+
+To kill a specific job, type 'kill <job_number>'
 
 <a name="executable"/>
 
