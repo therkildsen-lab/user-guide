@@ -241,9 +241,9 @@ Output normally printed to the screen would be printed to logfile.nohup.
 
 ### How do I kill a job?
 
-Get the job ID using 'htop' (this shows all jobs being run; look for the PIDs matching your username). To see only the job numbers that *you* are currently running, type 'pgrep -u <username>'
+Get the job ID using `htop` (this shows all jobs being run; look for the PIDs matching your username). To see only the job numbers that *you* are currently running, type `pgrep -u <your_username>`
 
-To kill a specific job, type 'kill <job_number>'
+To kill a specific job, type `kill <job_number>`
 
 <a name="executable"/>
 
