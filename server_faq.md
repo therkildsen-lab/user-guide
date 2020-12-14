@@ -19,7 +19,7 @@ FAQs for using the Therkildsen lab CBSU server
     -   [Where do I run programs?](#where-do-i-run-programs)
     -   [How do I install programs?](#how-do-i-install-programs)
     -   [How do I run programs in the background?](#how-do-i-run-programs-in-the-background)
-    -   [How do I check job status?] (#how-do-i-check-job-status)
+    -   [How do I check job status?](#how-do-i-check-job-status)
     -   [How do I kill a job?](#how-do-i-kill-a-job)
     -   [How do I make scripts executable?](#how-do-i-make-scripts-executable)
     -   [How do I control the number of threads a program uses?](#how-do-i-control-the-number-of-threads-a-program-uses)
