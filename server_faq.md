@@ -19,6 +19,7 @@ FAQs for using the Therkildsen lab CBSU server
     -   [Where do I run programs?](#where-do-i-run-programs)
     -   [How do I install programs?](#how-do-i-install-programs)
     -   [How do I run programs in the background?](#how-do-i-run-programs-in-the-background)
+    -   [How do I check job status?] (#how-do-i-check-job-status)
     -   [How do I kill a job?](#how-do-i-kill-a-job)
     -   [How do I make scripts executable?](#how-do-i-make-scripts-executable)
     -   [How do I control the number of threads a program uses?](#how-do-i-control-the-number-of-threads-a-program-uses)
@@ -192,11 +193,17 @@ would be run with:
 
 Output normally printed to the screen would be printed to logfile.nohup.
 
+## How do I check job status?
+
+To see the job status of *all* jobs running on the server, use `htop`
+
+To see only the status of jobs that *you* are running, use `ps -aux | grep user_name`
+
 ### How do I kill a job?
 
-Get the job ID using `htop` (this shows all jobs being run; look for the PIDs matching your username). To see only the job numbers that *you* are currently running, type `pgrep -u <your_username>`
+Get the job ID using `htop` (this shows all jobs being run; look for the PIDs matching your username). To see only the job numbers that *you* are currently running, use `pgrep -u user_name`
 
-To kill a specific job, type `kill <job_number>`
+To kill a specific job, use `kill job_number`
 
 ### How do I make scripts executable?
 
