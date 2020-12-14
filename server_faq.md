@@ -99,6 +99,8 @@ To transfer files between your local computer and the server (good for &lt;1-2 G
 
 If you have lots of files, big files, or need to transfer between two remote servers, use Globus. See <https://cbsu.tc.cornell.edu/lab/doc/Globus_at_BioHPC_Lab.pdf>
 
+You can also use Filezilla. See <https://biohpc.cornell.edu/lab/doc/UsingFileZilla.pdf>
+
 ### How do I check memory usage?
 
 Keep an eye on memory and node usage with the command:
