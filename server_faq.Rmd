@@ -76,6 +76,8 @@ To transfer files between your local computer and the server (good for <1-2 GB f
 
 If you have lots of files, big files, or need to transfer between two remote servers, use Globus. See https://cbsu.tc.cornell.edu/lab/doc/Globus_at_BioHPC_Lab.pdf
 
+You can also use Filezilla. See https://biohpc.cornell.edu/lab/doc/UsingFileZilla.pdf
+
 ### How do I check memory usage?
 
 Keep an eye on memory and node usage with the command: 
@@ -170,6 +172,12 @@ would be run with:
 `nohup program argument1 argument2 >& logfile.nohup &`
 
 Output normally printed to the screen would be printed to logfile.nohup.
+
+### How do I check job status?
+
+To see the job status of **all** jobs running on the server, use `htop`
+
+To see only the status of jobs that **you** are running, use `ps -aux | grep user_name`
 
 ### How do I kill a job?
 
