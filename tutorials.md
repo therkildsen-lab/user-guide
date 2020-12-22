@@ -51,4 +51,4 @@
 
 ### Genome Analysis Toolkit (GATK) Variant Calling
 
-* [Genome Analysis Toolkit](https://github.com/therkildsen-lab/data-processing/blob/master/lcwgs_data_processing.md)
+* [Genome Analysis Toolkit](https://github.com/therkildsen-lab/user-guide/Genome Analysis Toolkit.md)
