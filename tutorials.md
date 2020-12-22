@@ -47,3 +47,8 @@
 * [Data Processing](https://github.com/therkildsen-lab/data-processing/blob/master/lcwgs_data_processing.md)
 
 * [Data Analysis](https://github.com/therkildsen-lab/genomic-data-analysis/blob/master/lcwgs_data_analysis.md)
+<br>
+
+### Genome Analysis Toolkit (GATK) Variant Calling
+
+* [Genome Analysis Toolkit](https://github.com/therkildsen-lab/data-processing/blob/master/lcwgs_data_processing.md)
