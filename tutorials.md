@@ -40,6 +40,11 @@
 
 * [MaSuRCA Quick Start Guide](https://github.com/alekseyzimin/masurca/blob/master/README.md)
 
+
+* [Flye Install, Usage, and FAQs](https://github.com/fenderglass/Flye/blob/flye/README.md)
+
+* [Carl's assembly notes in progress](https://github.com/castjohn/Catostomid_assembly/blob/main/README.md)
+
 <br>
 
 ### Workflow for low-coverage whole genome sequencing
