@@ -34,6 +34,8 @@
 
 * [NTRES 6940: Version control and the Git/GitHub workflow](https://github.com/nt246/NTRES6940-data-science/blob/master/lecture_notes/lesson3-version-control.md) (and the resources linked within)
 
+* [Version Control w/ Git Tutorial](http://swcarpentry.github.io/git-novice/)
+
 <br>
 
 ### Genome assembly
