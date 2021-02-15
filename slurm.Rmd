@@ -1,0 +1,105 @@
+---
+title: "SLURM tutorial"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Intro
+
+
+https://biohpc.cornell.edu/lab/cbsubscb_SLURM.htm
+
+### Cluster structure
+
+### Logging in
+
+`ssh netid@cbsulogin2.tc.cornell.edu` 
+
+`ssh netid@cbsulogin.biohpc.cornell.edu`
+
+Login nodes:
+
+* cbsulogin
+* cbsulogin2
+* cbsulogin3
+
+### Partitions
+
+### Storage
+
+
+## Key rules
+
+* Don't do any computing on your login node (if you do, you'll get emails). Do everything in a script that you submit to the cluster.
+
+* Each job should perform computations in a temporary working directory
+  + start by copying all the files you need from your home directory into the temporary directory 
+  + copy all desired output from the temporary directory to your home directory 
+  + delete the temporary directory at the end
+  
+ex:
+```{bash eval=F, include=T}
+# Create and move to a working directory for job
+WORKDIR=/SSD/$USER/$JOB_ID-$SLURM_ARRAY_TASK_ID
+mkdir -p $WORKDIR
+cd $WORKDIR
+
+# Copy files to working directory
+BASE_DIR=/home/ikk23
+cp $BASE_DIR/slim_files/merged_same_site_spatial.slim .
+cp $BASE_DIR/python_scripts/new_driver.py .
+
+# Run program
+python new_driver.py > ${SLURM_ARRAY_TASK_ID}.part
+
+# Copy files back to home directory
+cp ${SLURM_ARRAY_TASK_ID}.part $BASE_DIR/zpg_output
+
+# Clean up working directory
+rm -r $WORKDIR
+```
+
+## Simple example
+
+https://cvw.cac.cornell.edu/environment/sbatch_intro
+
+* Submit job with:  `sbatch job.sh`
+  + can include your job parameters here
+
+* Monitor your jobs with: `squeue -u netid`
+
+* Monitor *all* jobs with: `squeue`
+ 
+* Kill your job with: `scancel jobnumber`
+
+## Job arrays
+
+If you want to run an identical program 10 times, instead of using a for-loop, you can submit the script as a job array. You'd just need to include the header `#SBATCH --array=1-10` at the top.
+
+* Each array job will get its own unique ID  (SLURM_ARRAY_TASK_ID) that you can make use of in your script.
+
+### Example - running SLiM jobs on the cluster
+
+Shell script: `run_slim_zpg.sh`
+
+* SLiM file: `merged_same_site_spatial.slim`
+
+* Python driver: `new_driver.py`
+  + This runs each SLiM job nreps times, parses the output, and appends the desired results to a big csv
+
+* Text file with commands: `run_slim_zpg_params.txt`
+
+* Shell script that I'll submit to SLURM: `run_slim_zpg.sh`
+  + This is an array of 20 jobs
+  + I use the SLURM_ARRAY_TASK_ID environmental variable to grab a specific line of my param txt file
+  + A line such as `python new_driver.py -d zpg -nreps 10` runs SLiM through the python driver 10 times. The `-d zpg` argument is used within the SLiM file to simulate a gene drive with a ZPG promoter
+  + I end up with 200 replicates, since here, all lines are the same.
+
+
+
+
+
+
