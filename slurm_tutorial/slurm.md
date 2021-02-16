@@ -12,6 +12,8 @@ BSCB Cluster Tutorial
   - [Slurm overview](https://slurm.schedmd.com/overview.html)
   - [Slurm commands reference
     sheet](https://slurm.schedmd.com/pdfs/summary.pdf)
+  - [Recordings of past BioHPC
+    workshops](https://biohpc.cornell.edu/login_bio.aspx?ReturnURL=/lab/medialist.aspx)
 
 ## Cluster structure
 
@@ -396,7 +398,7 @@ cat slim_job.sh
     ## $prog > slim_result_${SLURM_ARRAY_TASK_ID}.csv
     ## cp slim_result_${SLURM_ARRAY_TASK_ID}.csv $BASE_DIR/example/results/
     ## 
-    ## # Clean up working directory:
+    ## # Clean up working directory
     ## rm -r $WORKDIR
 
 ## Remaining Questions

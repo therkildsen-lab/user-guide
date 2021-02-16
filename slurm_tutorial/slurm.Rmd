@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * [Introduction to slurm in the Bioinformatics Workbook](https://bioinformaticsworkbook.org/Appendix/Unix/01_slurm-basics.html#gsc.tab=0)
 * [Slurm overview](https://slurm.schedmd.com/overview.html)
 * [Slurm commands reference sheet](https://slurm.schedmd.com/pdfs/summary.pdf)
+* [Recordings of past BioHPC workshops](https://biohpc.cornell.edu/login_bio.aspx?ReturnURL=/lab/medialist.aspx)
 
 ## Cluster structure
 
