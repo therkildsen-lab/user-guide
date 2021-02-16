@@ -151,7 +151,7 @@ The following example contains the most useful headers. You will need to delete 
 
 When the script is ready, you can save it as `submit.sh`, for example, and submit it with `sbatch submit.sh`.
 
-Note that this option is only application for `sbatch`, but not `salloc`.
+Note that this option is only applicable for `sbatch`, but not `salloc`.
 
 **2. By appending the options after `sbatch` or `salloc` on command line.**
 
@@ -185,7 +185,7 @@ Some other slurm options not specified in above exmaples include:
 * `slurm_stat.pl cbsubscb`: summarize current usage of nodes, partitions, and slots, and number of jobs per user (run on one of the login nodes)
 * `get_slurm_usage.pl`: generate information about average duration, CPU, and memory usage of your recent jobs (run the command without arguments to see usage) - this may help assess real memory needs of your jobs and show whether all requested CPUs are actually used.
 
-#### A simple example of job submission using `sbatch`
+## A simple example of job submission using `sbatch`
 
 `simple_example.sh` merges 365 fasta files into 1.
 
@@ -215,7 +215,7 @@ You can view the status of your jobs with: `squeue -u netid`
 
 Kill your job with: `scancel jobnumber`
 
-#### Job arrays
+## Job arrays
 
 * If you want to run an identical program 10 times, instead of using a for-loop, you can submit the script as a job array of length 10. This is controlled by the header: `#SBATCH --array=1-10`
 * Each array job will get its own unique ID, `SLURM_ARRAY_TASK_ID`, that you can make use of in your script.
@@ -233,7 +233,7 @@ $prog > output${SLURM_ARRAY_TASK_ID}.out
   + Remember to copy the output back to your home directory before deleting the temporary working directory!
 
 
-###### Example - running SLiM jobs on the cluster
+#### Example - running SLiM jobs on the cluster
 
 * SLiM file: `merged_same_site_spatial.slim`
 
@@ -255,7 +255,7 @@ cat slim_job.sh
 ## Remaining Questions
 
 * Can `nt246` be network mounted to BSCB nodes?
-* Do you have access to the storage servers?
+* Are we allowed to use the storage servers?
 * Can the storage server be network mounted to `nt246`?
 * How to backup files in permant storage locations?
 * How to run RStudio Server?
