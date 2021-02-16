@@ -1,6 +1,4 @@
 #!/bin/bash -l
-#SBATCH --ntasks=1
-#SBATCH --mem=1000
 #SBATCH --time=10:00
 #SBATCH --partition=short
 #SBATCH --job-name=simple_job
