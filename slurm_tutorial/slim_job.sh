@@ -30,5 +30,5 @@ prog=`sed -n "${SLURM_ARRAY_TASK_ID}p" slim_job_params.txt`
 $prog > slim_result_${SLURM_ARRAY_TASK_ID}.csv
 cp slim_result_${SLURM_ARRAY_TASK_ID}.csv $BASE_DIR/example/results/
 
-# Clean up working directory:
+# Clean up working directory
 rm -r $WORKDIR
