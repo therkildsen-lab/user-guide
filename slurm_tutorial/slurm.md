@@ -103,7 +103,7 @@ General Info
 -   Don't do any computing directly on the login nodes or computing nodes (if you do, you'll get angry emails).
     -   Instead, either write everything in a script that you submit using `sbatch`, or request an interactive session using `salloc`.
 -   It is also not recommended to do computing directly (i.e. read or write) with files that are network-mounted (i.e. `/fs/`, `/cbsu/`, `/home/`), especially for jobs that are heavy in I/O.
-    -   Instead, start by creating a temporary directory under `/workdir/`
+    -   Instead, start by creating a temporary directory under `/workdir/` or `/SSD/` (if present)
     -   Then, copy all the files you will need from the network mounted storage space into the temporary directory.
     -   Perform computation with files in the temporary directory.
     -   Copy all desired output from the temporary directory to your home directory.
