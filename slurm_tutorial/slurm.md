@@ -257,6 +257,9 @@ Kill your job with: `scancel jobnumber`
 -   In the shell script, write:
 
 ``` bash
+# go to the <SLURM_ARRAY_TASK_ID> line of the job_parameters.txt file
+# and run this command
+# for example, this line could read `python my_script.py 4`
 prog=`sed -n "${SLURM_ARRAY_TASK_ID}p" job_parameters.txt`
 $prog > output${SLURM_ARRAY_TASK_ID}.out
 ```
