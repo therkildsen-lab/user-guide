@@ -7,3 +7,5 @@
 [To-do list](https://github.com/therkildsen-lab/user-guide/blob/master/to-dos.md)
 
 [Tutorials and useful background reading](https://github.com/therkildsen-lab/user-guide/blob/master/tutorials.md)
+
+[SLURM information](slurm_tutorial/slurm.md)
