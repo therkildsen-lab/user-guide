@@ -125,8 +125,9 @@ rm -r $WORKDIR
 
 ## Simple example
 
-<https://cvw.cac.cornell.edu/environment/sbatch_intro>
+`simple_example.sh` merges 365 fasta files into 1.
 
+<<<<<<< HEAD:slurm.md
 -   Submit job with: `sbatch job.sh`
 -   can include your job parameters here
 
@@ -135,6 +136,37 @@ rm -r $WORKDIR
 -   Monitor *all* jobs with: `squeue`
 
 -   Kill your job with: `scancel jobnumber`
+=======
+Job headers:
+
+  - `#SBATCH --time=10:00` : set a time limit of 10 minutes
+  - `#SBATCH --partition=short` : use the **short** queue, since this
+    job will take less than 4 hours
+  - `#SBATCH --job-name=simple_job` : this is the name that will appear
+    in `squeue`
+  - `#SBATCH --output=simple_job.out` : direct error messsages to this
+    file, which will be placed in the working directory from which you
+    submitted the job
+
+Submit this job with: `sbatch simple_example.sh`
+
+  - You can include job headers here instead. For example, I could have
+    omitted the headers above and instead done `sbatch simple_example.sh
+    -t 10:00 -p short -J simple_job -o simple_job.out`
+  - Once you submit your job, you’ll get a message that includes the job
+    number
+      - ex: `Submitted batch job 1844784`
+
+You can view the status of your jobs with: `squeue -u netid`
+
+  - This should look something like: ![](job_status.png)
+
+  - If you’d rather be notified via email at the job start, end, or
+    crash, include headers `#SBATCH --mail-user=email@address.com` and
+    `#SBATCH --mail-type=ALL`
+
+Kill your job with: `scancel jobnumber`
+>>>>>>> 0dc0b844cf191428402163e4566867e2e3e33bea:slurm_tutorial/slurm.md
 
 ## Job arrays
 
