@@ -36,16 +36,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### Computing nodes
 
-* Genenral Info
-	  * Currently, there are a total of 16 computing nodes, which are named `cbsubscb01`-`cbsubscb15`, and `cbsubscbgpu01`.
-	  * Their specs range from 32-56 in physical cores, and 256-512GB in RAM.
-	  * You can access these computing nodes from the login node, by 
-	      * submitting a job using `sbatch`, OR 
-	      * requesting an interactive session using `salloc`
-	  * Each node can also be accessed directly though `ssh`.
-	      * You can't run computationally intensive jobs in these sessions. 
-	      * This is only for tasks such as job submission, interactive session request, file lookup, and monitoring.
-	      * Unlike the login nodes, accessing the computing nodes directly will require Cornell network connect (i.e. VPN if you are off campus).
+General Info
+
+* Currently, there are a total of 16 computing nodes, which are named `cbsubscb01`-`cbsubscb15`, and `cbsubscbgpu01`.
+* Their specs range from 32-56 in physical cores, and 256-512GB in RAM.
+* You can access these computing nodes from the login node, by submitting a job using `sbatch` OR by requesting an interactive session using `salloc`
+* Each node can also be accessed directly though `ssh`
+* You can't run computationally intensive jobs in these sessions. 
+    + This is only for tasks such as job submission, interactive session request, file lookup, and monitoring.
+* Unlike the login nodes, accessing the computing nodes directly will require Cornell network connect (i.e. VPN if you are off campus).
 
 * Local storage on computing nodes
 	  * Each computing node has a local permanent storage and each is assigned to a different lab group.
@@ -95,7 +94,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### General rules
 
-* Don't do any computing directly on the login nodes or computing nodes (if you do, you'll get emails). 
+* Don't do any computing directly on the login nodes or computing nodes (if you do, you'll get angry emails). 
     * Instead, either write everything in a script that you submit using `sbatch`, or request an interactive session using `salloc`.
 * It is also not recommended to do computing directly (i.e. read or write) with files that are network-mounted (i.e. `/fs/`, `/cbsu/`, `/home/`), especially for jobs that are heavy in I/O.
     * Instead, start by creating a temporary directory under `/workdir/`
@@ -103,7 +102,7 @@ knitr::opts_chunk$set(echo = TRUE)
     * Perform computation with files in the temporary directory.
     * Copy all desired output from the temporary directory to your home directory.
     * Delete the temporary directory at the end.
-    * Below is an exmaple of this workflow.
+    * Below is an example of this workflow.
 
 ```{bash eval = FALSE, include = TRUE}
 # Create and move to a working directory for job
@@ -217,30 +216,36 @@ Kill your job with: `scancel jobnumber`
 
 #### Job arrays
 
-If you want to run an identical program 10 times, instead of using a for-loop, you can submit the script as a job array. You'd just need to include the header `#SBATCH --array=1-10` at the top.
+* If you want to run an identical program 10 times, instead of using a for-loop, you can submit the script as a job array of length 10. This is controlled by the header: `#SBATCH --array=1-10`
+* Each array job will get its own unique ID, `SLURM_ARRAY_TASK_ID`, that you can make use of in your script.
+* If you want each job in a 1-10 array to run something different, you can create a text file with 10 lines and have each line specify the command you want to run.
+  + Make sure to copy this text file over to the temporary working directory!
+  + In the shell script, write: 
+```{bash eval=F, include=T}
+prog=`sed -n "${SLURM_ARRAY_TASK_ID}p" job_parameters.txt`
+$prog > output${SLURM_ARRAY_TASK_ID}.out
+```
+  + If this is the 3rd job in the job array, then the command on the 3rd line of `job_parameters.txt` will be run
+  + Remember to copy the output back to your home directory before deleting the temporary working directory!
 
-* Each array job will get its own unique ID  (SLURM_ARRAY_TASK_ID) that you can make use of in your script.
 
 ###### Example - running SLiM jobs on the cluster
-
-Shell script: `run_slim_zpg.sh`
 
 * SLiM file: `merged_same_site_spatial.slim`
 
 * Python driver: `new_driver.py`
-  + This runs each SLiM job nreps times, parses the output, and appends the desired results to a big csv
+  + This runs each SLiM simulation `-nreps` times, parses the output, and writes the desired results to a csv file that will be copied back to my home directory.
 
-* Text file with commands: `run_slim_zpg_params.txt`
+* Text file with commands: `slim_job_params.txt`
 
-* Shell script that I'll submit to SLURM: `run_slim_zpg.sh`
-  + This is an array of 20 jobs
-  + I use the SLURM_ARRAY_TASK_ID environmental variable to grab a specific line of my param txt file
-  + A line such as `python new_driver.py -d zpg -nreps 10` runs SLiM through the python driver 10 times. The `-d zpg` argument is used within the SLiM file to simulate a gene drive with a ZPG promoter
-  + I end up with 200 replicates, since here, all lines are the same.
+* Shell script that I'll submit to SLURM: `slim_job.sh`
+  + This is an array of length 7.
+  + I use the SLURM_ARRAY_TASK_ID environmental variable to grab a specific line of my param txt file. Each line will tells Python to modify my SLiM file to simulate a specific promoter. 
+    + For example, the 2nd array job will run `python new_driver.py -d zpgX -nreps 2 -header`, which simulates a zpgX promoter 2 times and creates a csv file with 2 lines (`slim_result_2.csv`)
 
-
-
-
+```{bash}
+cat slim_job.sh
+```
 
 
 ## Remaining Questions
