@@ -62,4 +62,4 @@
 
 ### Directory and code organization
 * [Directory organization](https://github.com/therkildsen-lab/user-guide/blob/master/Directory_org.md)
-* [Code headers]
+* [Code headers](https://github.com/therkildsen-lab/user-guide/blob/master/Code%20_headers.md)
