@@ -1,4 +1,4 @@
-### Organizing directories
+# Organizing directories
 For each new project you will usually want to have a separate dedicated folder to contain all major code scripts and output data related to that project. Even if you are re-using scripts that are already located in another project's folder, consider copying that code over into your new project folder, instead of reading it from another location.
 
 The guiding principle should be that you want to be able to run your whole project's code (barring any software you have to download) using the scripts that are located within that project folder. That way, if you ever have to move your project files to another computer, you won't be missing any scripts on which you're dependent.
@@ -17,11 +17,11 @@ Finally, you’ll want to create a simple text README file that explicitly state
 
 A README file written in markdown could look like this:
 
-# Files for New Project by Student McGee and PI ForFree, Year Month(s)
+## Files for New Project by Student McGee and PI ForFree, Year Month(s)
 
 Short description of New Project
 
-## Description of each folder or file and the data contained within:
-  src - What scripts are here?
-  results - What kind of result files are here?
-  data - What sort of data?
+### Description of each folder or file and the data contained within:
+- src - What scripts are here?
+- results - What kind of result files are here?
+- data - What sort of data?
