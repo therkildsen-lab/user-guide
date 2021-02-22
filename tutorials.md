@@ -59,3 +59,7 @@
 ### Genome Analysis Toolkit (GATK) Variant Calling
 
 * [Genome Analysis Toolkit](https://github.com/therkildsen-lab/user-guide/blob/master/Genome_Analysis_Toolkit.md)
+
+### Directory and code organization
+* [Directory organization]
+* [Code headers]
