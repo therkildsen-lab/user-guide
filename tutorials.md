@@ -61,5 +61,5 @@
 * [Genome Analysis Toolkit](https://github.com/therkildsen-lab/user-guide/blob/master/Genome_Analysis_Toolkit.md)
 
 ### Directory and code organization
-* [Directory organization] (https://github.com/therkildsen-lab/user-guide/blob/master/Directory_org.md)
+* [Directory organization](https://github.com/therkildsen-lab/user-guide/blob/master/Directory_org.md)
 * [Code headers]
