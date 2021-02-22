@@ -6,7 +6,7 @@ There has been a lot of great work done on how to properly comment code (e.g. [M
 Another nice thing to do is to include a proper header file at the beginning of your code. 
 This header file should include any naming schemes being used (e.g. "This script was orginally named ScriptyMcShellFace.sh, and I've renamed this version to BoringName.sh"), as well as the basic purpose of the code, the name of the original author of the script, and the names of any other authors contributing to this script.
 
-Here below is an example header from an R script used to generate simulations for a publication, and made publicly avaialble on GitHub:
+Here below is an example header from an R script named `Redund_clean.R` used to generate simulations for a publication, and made publicly avaialble on GitHub:
 ```
 ## Originally: redundancy.R
 ## Katie E Lotterhos
