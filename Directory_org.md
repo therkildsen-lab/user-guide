@@ -16,12 +16,13 @@ Depending on the project, you'll want to have a data folder to keep the raw data
 Finally, you’ll want to create a simple text README file that explicitly states what subdirectories you have in your project folder, and what they should contain. Ideally you should have a README file in each directory that states what files it contains.
 
 A README file written in markdown could look like this:
-
-## Files for New Project by Student McGee and PI ForFree, Year Month(s)
+```
+# Files for New Project by Student McGee and PI ForFree, Year Month(s)
 
 Short description of New Project
 
-### Description of each folder or file and the data contained within:
-- src - What scripts are here?
-- results - What kind of result files are here?
-- data - What sort of data?
+## Description of each folder or file and the data contained within:
+  src - What scripts are here?
+  results - What kind of result files are here?
+  data - What sort of data?
+```
