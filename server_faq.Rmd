@@ -3,6 +3,7 @@ title: "FAQs for using the Therkildsen lab CBSU server"
 output: 
   github_document:
     toc: true
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -181,9 +182,11 @@ To see only the status of jobs that **you** are running, use `ps -aux | grep use
 
 ### How do I kill a job?
 
-Get the job ID using `htop` (this shows all jobs being run; look for the PIDs matching your username). To see only the job numbers that *you* are currently running, type `pgrep -u <your_username>`
+Get the job ID using `htop` (this shows all jobs being run; look for the PIDs matching your username). To see only the job numbers that *you* are currently running, type `pgrep -u USERNAME`
 
-To kill a specific job, type `kill <job_number>`
+To kill a specific job, use `kill JOBNUM`
+
+To kill *all* jobs associated with your user name, use `nohup pkill -u USERNAME`
 
 ### How do I make scripts executable?
 
