@@ -251,10 +251,39 @@ $prog > output${SLURM_ARRAY_TASK_ID}.out
 cat slim_job.sh
 ```
 
+## Accessing files from `cbsunt246` within a script or interactive session on the cluster
+
+The old `cbsunt246` server has already been mounted onto the new `cbsubscb16` cluster server. To access any file, just use the prefix `/fs/cbsunt246` before the rest of the path `/workdir/...`
+
+Ex: accessing a `cbsunt246` file within an `salloc` interactive session
+```{bash eval=F}
+# log into the cluster
+ssh ikk23@cbsulogin2.tc.cornell.edu
+
+# request an interactive session
+salloc --nodes=1 --ntasks=1 --mem=1G --partition=short --time=00:10:00
+
+# navigate to repo on cbsunt246
+cd /fs/cbsunt246/workdir/shad/shad-lcwgs/
+
+# do some computation
+touch new_file.txt # will be stored on the cbsunt246 server
+
+# exit the interactive job
+exit
+```
+
+Ex: accessing a `cbsunt246` file within a SLURM script.
+```{bash}
+cat trial_job.sh
+```
+
+
+
+
 
 ## Remaining Questions
 
-* Can `nt246` be network mounted to BSCB nodes?
 * Are we allowed to use the storage servers?
 * Can the storage server be network mounted to `nt246`?
 * How to backup files in permant storage locations?
