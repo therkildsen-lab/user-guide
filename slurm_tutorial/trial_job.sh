@@ -10,6 +10,9 @@ USER=ikk23
 WORKDIR=/workdir/${USER}-${SLURM_JOB_ID}
 mkdir $WORKDIR
 
+# Mount the cbsunt246 server
+/programs/bin/labutils/mount_server cbsunt246 /workdir
+
 # Copy a file from the old server into the scratch directory
 cp /fs/cbsunt246/workdir/shad/shad-lcwgs/sample_lists/error_contigs.txt $WORKDIR
 

@@ -421,12 +421,18 @@ salloc --nodes=1 --ntasks=1 --mem=1G --partition=short --time=00:10:00
 # navigate to repo on cbsunt246
 cd /fs/cbsunt246/workdir/shad/shad-lcwgs/
 
+# mount server
+/programs/bin/labutils/mount_server cbsunt246 /workdir
+
 # do some computation
 touch new_file.txt # will be stored on the cbsunt246 server
 
 # exit the interactive job
 exit
 ```
+
+Note: you might get the message that the server has already been
+mounted.
 
 Ex: accessing a `cbsunt246` file within a SLURM script.
 
@@ -445,6 +451,9 @@ cat trial_job.sh
     ## USER=ikk23
     ## WORKDIR=/workdir/${USER}-${SLURM_JOB_ID}
     ## mkdir $WORKDIR
+    ## 
+    ## # Mount the cbsunt246 server
+    ## /programs/bin/labutils/mount_server cbsunt246 /workdir
     ## 
     ## # Copy a file from the old server into the scratch directory
     ## cp /fs/cbsunt246/workdir/shad/shad-lcwgs/sample_lists/error_contigs.txt $WORKDIR

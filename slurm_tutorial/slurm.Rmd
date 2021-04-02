@@ -266,12 +266,17 @@ salloc --nodes=1 --ntasks=1 --mem=1G --partition=short --time=00:10:00
 # navigate to repo on cbsunt246
 cd /fs/cbsunt246/workdir/shad/shad-lcwgs/
 
+# mount server
+/programs/bin/labutils/mount_server cbsunt246 /workdir
+
 # do some computation
 touch new_file.txt # will be stored on the cbsunt246 server
 
 # exit the interactive job
 exit
 ```
+
+Note: you might get the message that the server has already been mounted. 
 
 Ex: accessing a `cbsunt246` file within a SLURM script.
 ```{bash}
