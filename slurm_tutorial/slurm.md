@@ -1,18 +1,44 @@
 BSCB Cluster Tutorial
 ================
 
+-   [Resources](#resources)
+-   [Cluster structure](#cluster-structure)
+    -   [Login nodes](#login-nodes)
+    -   [Computing nodes](#computing-nodes)
+        -   [General Info](#general-info)
+        -   [Local storage on computing
+            nodes](#local-storage-on-computing-nodes)
+        -   [Scratch storage on computing
+            nodes](#scratch-storage-on-computing-nodes)
+    -   [Storage servers](#storage-servers)
+    -   [Home directory](#home-directory)
+-   [Cluster partitions](#cluster-partitions)
+-   [Computing](#computing)
+    -   [General rules](#general-rules)
+    -   [Slurm submission options](#slurm-submission-options)
+    -   [Job monitoring](#job-monitoring)
+-   [A simple example of job submission using
+    `sbatch`](#a-simple-example-of-job-submission-using-sbatch)
+-   [Job arrays](#job-arrays)
+    -   [Example - running SLiM jobs on the
+        cluster](#example---running-slim-jobs-on-the-cluster)
+-   [Accessing files from `cbsunt246` within a script or interactive
+    session on the
+    cluster](#accessing-files-from-cbsunt246-within-a-script-or-interactive-session-on-the-cluster)
+-   [Q & A with Robert Bukowski](#q--a-with-robert-bukowski)
+
 ## Resources
 
-  - [BSCB cluster
+-   [BSCB cluster
     guide](https://biohpc.cornell.edu/lab/cbsubscb_SLURM.htm)
-  - [Slurm introduction by Princeton Research
+-   [Slurm introduction by Princeton Research
     Computing](https://researchcomputing.princeton.edu/slurm)
-  - [Introduction to slurm in the Bioinformatics
+-   [Introduction to slurm in the Bioinformatics
     Workbook](https://bioinformaticsworkbook.org/Appendix/Unix/01_slurm-basics.html#gsc.tab=0)
-  - [Slurm overview](https://slurm.schedmd.com/overview.html)
-  - [Slurm commands reference
+-   [Slurm overview](https://slurm.schedmd.com/overview.html)
+-   [Slurm commands reference
     sheet](https://slurm.schedmd.com/pdfs/summary.pdf)
-  - [Recordings of past BioHPC
+-   [Recordings of past BioHPC
     workshops](https://biohpc.cornell.edu/login_bio.aspx?ReturnURL=/lab/medialist.aspx)
 
 ## Cluster structure
@@ -23,109 +49,108 @@ BSCB Cluster Tutorial
 
 #### Login nodes
 
-  - There are three login nodes: `cbsulogin`, `cbsulogin2`, and
+-   There are three login nodes: `cbsulogin`, `cbsulogin2`, and
     `cbsulogin3`.
-  - They are used for submitting jobs or requesting interactive
+-   They are used for submitting jobs or requesting interactive
     sessions.
-  - Use `ssh` to connect to login nodes (Cornell VPN is not necessary).
-      - They all have the domain name `cbsulogin.biohpc.cornell.edu`.
-      - E.g. `ssh netid@cbsulogin.biohpc.cornell.edu`
-  - Don’t use them for computation.
+-   Use `ssh` to connect to login nodes (Cornell VPN is not necessary).
+    -   They all have the domain name `cbsulogin.biohpc.cornell.edu`.
+    -   E.g. `ssh netid@cbsulogin.biohpc.cornell.edu`
+-   Don’t use them for computation.
 
 #### Computing nodes
 
 ###### General Info
 
-  - Currently, there are a total of 18 computing nodes, which are named
+-   Currently, there are a total of 18 computing nodes, which are named
     `cbsubscb01`-`cbsubscb17`, and `cbsubscbgpu01`.
-  - Their specs range from 32-64 in physical cores, and 256-1003GB in
+-   Their specs range from 32-64 in physical cores, and 256-1003GB in
     RAM.
-  - You can access these computing nodes from the login node, by
+-   You can access these computing nodes from the login node, by
     submitting a job using `sbatch` OR by requesting an interactive
     session using `salloc`
-  - Each node can also be accessed directly though `ssh`
-  - You can’t run computationally intensive jobs in these sessions.
-      - This is only for tasks such as job submission, interactive
+-   Each node can also be accessed directly though `ssh`
+-   You can’t run computationally intensive jobs in these sessions.
+    -   This is only for tasks such as job submission, interactive
         session request, file lookup, and monitoring.
-  - Unlike the login nodes, accessing the computing nodes directly will
+-   Unlike the login nodes, accessing the computing nodes directly will
     require Cornell network connect (i.e. VPN if you are off campus).
 
 ###### Local storage on computing nodes
 
-  - Each computing node has a local permanent storage and each is
+-   Each computing node has a local permanent storage and each is
     assigned to a different lab group.  
-  - The computing node assigned to the Therkildsen lab for permanent
+-   The computing node assigned to the Therkildsen lab for permanent
     storage is `cbsubscb16`.  
-  - The local storage of each node is located at the directory
+-   The local storage of each node is located at the directory
     `/local/storage`.  
-  - The local storage of each node can be mounted to any other node
-    using the command `/programs/bin/labutils/mount_server node_name
-    /storage`.
-      - e.g. `/programs/bin/labutils/mount_server cbsubscb16 /storage`  
-  - The mounted storage then becomes available under the directory
+-   The local storage of each node can be mounted to any other node
+    using the command
+    `/programs/bin/labutils/mount_server node_name /storage`.
+    -   e.g. `/programs/bin/labutils/mount_server cbsubscb16 /storage`  
+-   The mounted storage then becomes available under the directory
     `/fs/node_name/storage/`  
-  - This mounting step is usually one of the first things we do in a job
+-   This mounting step is usually one of the first things we do in a job
     script so that your input files can be accessed from any of the
     computing nodes.
 
 ###### Scratch storage on computing nodes
 
-  - Each computing node has a scratch storage, ranging from 1-2TB in
+-   Each computing node has a scratch storage, ranging from 1-2TB in
     capacity.  
-  - They are located under `/workdir/` (and `/SSD/` on some nodes).  
-  - It is recommended to copy your input files from network mounted
+-   They are located under `/workdir/` (and `/SSD/` on some nodes).  
+-   It is recommended to copy your input files from network mounted
     storage space to this scratch storage for computing, espcially for
     I/O heavy jobs.  
-  - The scratch storage is shared by all users, so after you finish your
+-   The scratch storage is shared by all users, so after you finish your
     job, make sure to copy your output files to your permanent storage
     space, and clear the scrach storage space.
-  - Any files that were not removed by users will be removed
+-   Any files that were not removed by users will be removed
     automatically when the node receives a new job.
-  - Users who have jobs running on the nodes will **not** have their
+-   Users who have jobs running on the nodes will **not** have their
     associated files removed from the scratch space.
 
 #### Storage servers
 
-  - There are three storage servers, which together have a capcity of
+-   There are three storage servers, which together have a capcity of
     281TB.
-  - They should not be accessed directly.
-  - Instead, they are network mounted in all BSCB machines under
+-   They should not be accessed directly.
+-   Instead, they are network mounted in all BSCB machines under
     `/bscb/`, in which each lab group has a subfolder.
-  - They are not mounted to the `nt246` server yet.
+-   They are not mounted to the `nt246` server yet.
 
 #### Home directory
 
-  - You will always have the same home directory. It is mounted on all
+-   You will always have the same home directory. It is mounted on all
     CBSU servers.
-  - It has limited storage space and should not be used for computing or
+-   It has limited storage space and should not be used for computing or
     storage.
 
 ## Cluster partitions
 
 | Partition | Job Time Limit | Nodes                            | Slots                    |
-| --------- | -------------- | -------------------------------- | ------------------------ |
+|-----------|----------------|----------------------------------|--------------------------|
 | short     | 4 hours        | cbsubscb\[01-15\], cbsubscbgpu01 | 1392                     |
 | regular   | 24 hours       | cbsubscb\[01-15\], cbsubscbgpu01 | 435                      |
 | long7     | 7 days         | cbsubscb\[01-15\]                | 437                      |
 | long30    | 30 days        | cbsubscb\[01-15\]                | 500 (limit 270 per user) |
 | gpu       | 3 days         | cbsubscbgpu01                    | 32 + 2 GPUs              |
 
-  - Any jobs submitted from the login node will get to a queue.
-  - The cluster has five different queues (or partitions), and each has
+-   Any jobs submitted from the login node will get to a queue.
+-   The cluster has five different queues (or partitions), and each has
     a different time limit (see the table above).
-  - The partition to which a job is submitted can be specified by the
+-   The partition to which a job is submitted can be specified by the
     `--partition` or `-p` option, with default being the `short`
     partition.
-  - Note that there are a total of 1392 slots (i.e. number of tasks that
+-   Note that there are a total of 1392 slots (i.e. number of tasks that
     can be requested). So all slots are available for jobs submitted to
     the `short` partition, and only a subset of them are available for
     other partitions.
-  - Please use the following table to determine which partition(s) to
-    submit your jobs
-to:
+-   Please use the following table to determine which partition(s) to
+    submit your jobs to:
 
 | Intended job duration | Partition specification             | Slots available |
-| --------------------- | ----------------------------------- | --------------- |
+|-----------------------|-------------------------------------|-----------------|
 | up to 4 hours         | `--partition=short`                 | 1392            |
 | 4 - 24 hours          | `--partition=regular,long7,long30`  | 1372            |
 | 24 hours - 7 days     | `--partition=long7,long30`          | 937             |
@@ -136,25 +161,23 @@ to:
 
 #### General rules
 
-  - Don’t do any computing directly on the login nodes or computing
+-   Don’t do any computing directly on the login nodes or computing
     nodes (if you do, you’ll get angry emails).
-      - Instead, either write everything in a script that you submit
+    -   Instead, either write everything in a script that you submit
         using `sbatch`, or request an interactive session using
         `salloc`.
-  - It is also not recommended to do computing directly (i.e. read or
-    write) with files that are network-mounted (i.e. `/fs/`, `/bscb/`,
+-   It is also not recommended to do computing directly (i.e. read or
+    write) with files that are network-mounted (i.e. `/fs/`, `/bscb/`,
     `/home/`), especially for jobs that are heavy in I/O.
-      - Instead, start by creating a temporary directory under
+    -   Instead, start by creating a temporary directory under
         `/workdir/` or `/SSD/` (if present).
-      - Then, copy all the files you will need from the network mounted
+    -   Then, copy all the files you will need from the network mounted
         storage space into the temporary directory.
-      - Perform computation with files in the temporary directory.
-      - Copy all desired output from the temporary directory back to
+    -   Perform computation with files in the temporary directory.
+    -   Copy all desired output from the temporary directory back to
         your network mounted storage space.
-      - Delete the temporary directory at the end.
-      - Below is an example of this workflow.
-
-<!-- end list -->
+    -   Delete the temporary directory at the end.
+    -   Below is an example of this workflow.
 
 ``` bash
 # Create and move to a working directory for job
@@ -230,26 +253,26 @@ with command line when needed.
 
 Some other slurm options not specified in above exmaples include:
 
-  - `--nodelist`: computing nodes that you want your jobs to run on.
+-   `--nodelist`: computing nodes that you want your jobs to run on.
     E.g.`--nodelist=cbsubscb12`
-  - `--exclude`: computing nodes that you **don’t** want your jobs to
+-   `--exclude`: computing nodes that you **don’t** want your jobs to
     run on. E.g. `--exclude=cbsubscb10,cbsubscbgpu01`
 
 #### Job monitoring
 
-  - `sinfo` : report the overall state of the cluster and queues
-  - `scontrol show nodes` : report detailed information about the
+-   `sinfo` : report the overall state of the cluster and queues
+-   `scontrol show nodes` : report detailed information about the
     cluster nodes, including current usage
-  - `scontrol show partitions` : report detailed information about the
+-   `scontrol show partitions` : report detailed information about the
     queues (partitions)
-  - `squeue` : show jobs running and waiting in queues
-  - `squeue -u abc123` : show jobs belonging to user abc123
-  - `scancel 1564` : cancel job with jobID 1564. All processes
+-   `squeue` : show jobs running and waiting in queues
+-   `squeue -u abc123` : show jobs belonging to user abc123
+-   `scancel 1564` : cancel job with jobID 1564. All processes
     associated with the job will be killed
-  - `slurm_stat.pl cbsubscb`: summarize current usage of nodes,
+-   `slurm_stat.pl cbsubscb`: summarize current usage of nodes,
     partitions, and slots, and number of jobs per user (run on one of
     the login nodes)
-  - `get_slurm_usage.pl`: generate information about average duration,
+-   `get_slurm_usage.pl`: generate information about average duration,
     CPU, and memory usage of your recent jobs (run the command without
     arguments to see usage) - this may help assess real memory needs of
     your jobs and show whether all requested CPUs are actually used.
@@ -293,29 +316,29 @@ cat simple_example.sh
 
 Job headers:
 
-  - `#SBATCH --time=10:00` : set a time limit of 10 minutes
-  - `#SBATCH --partition=short` : use the **short** queue, since this
+-   `#SBATCH --time=10:00` : set a time limit of 10 minutes
+-   `#SBATCH --partition=short` : use the **short** queue, since this
     job will take less than 4 hours
-  - `#SBATCH --job-name=simple_job` : this is the name that will appear
+-   `#SBATCH --job-name=simple_job` : this is the name that will appear
     in `squeue`
-  - `#SBATCH --output=simple_job.out` : direct error messsages to this
+-   `#SBATCH --output=simple_job.out` : direct error messsages to this
     file, which will be placed in the working directory from which you
     submitted the job
 
 Submit this job with: `sbatch simple_example.sh`
 
-  - You can include job headers here instead. For example, I could have
-    omitted the headers above and instead done `sbatch simple_example.sh
-    -t 10:00 -p short -J simple_job -o simple_job.out`
-  - Once you submit your job, you’ll get a message that includes the job
+-   You can include job headers here instead. For example, I could have
+    omitted the headers above and instead done
+    `sbatch simple_example.sh -t 10:00 -p short -J simple_job -o simple_job.out`
+-   Once you submit your job, you’ll get a message that includes the job
     number
-      - ex: `Submitted batch job 1844784`
+    -   ex: `Submitted batch job 1844784`
 
 You can view the status of your jobs with: `squeue -u netid`
 
-  - This should look something like: ![](job_status.png)
+-   This should look something like: ![](job_status.png)
 
-  - If you’d rather be notified via email at the job start, end, or
+-   If you’d rather be notified via email at the job start, end, or
     crash, include headers `#SBATCH --mail-user=email@address.com` and
     `#SBATCH --mail-type=ALL`
 
@@ -323,19 +346,17 @@ Kill your job with: `scancel jobnumber`
 
 ## Job arrays
 
-  - If you want to run an identical program 10 times, instead of using a
+-   If you want to run an identical program 10 times, instead of using a
     for-loop, you can submit the script as a job array of length 10.
     This is controlled by the header: `#SBATCH --array=1-10`
-  - Each array job will get its own unique ID, `SLURM_ARRAY_TASK_ID`,
+-   Each array job will get its own unique ID, `SLURM_ARRAY_TASK_ID`,
     that you can make use of in your script.
-  - If you want each job in a 1-10 array to run something different, you
+-   If you want each job in a 1-10 array to run something different, you
     can create a text file with 10 lines and have each line specify the
     command you want to run.
-      - Make sure to copy this text file over to the temporary working
-        directory\!
-      - In the shell script, write:
-
-<!-- end list -->
+    -   Make sure to copy this text file over to the temporary working
+        directory!
+    -   In the shell script, write:
 
 ``` bash
 # go to the <SLURM_ARRAY_TASK_ID> line of the job_parameters.txt file
@@ -345,35 +366,33 @@ prog=`sed -n "${SLURM_ARRAY_TASK_ID}p" job_parameters.txt`
 $prog > output${SLURM_ARRAY_TASK_ID}.out
 ```
 
-  - If this is the 3rd job in the job array, then the command on the 3rd
+-   If this is the 3rd job in the job array, then the command on the 3rd
     line of `job_parameters.txt` will be run
-  - Remember to copy the output back to your home directory before
-    deleting the temporary working directory\!
+-   Remember to copy the output back to your home directory before
+    deleting the temporary working directory!
 
 #### Example - running SLiM jobs on the cluster
 
-  - SLiM file: `merged_same_site_spatial.slim`
+-   SLiM file: `merged_same_site_spatial.slim`
 
-  - Python driver: `new_driver.py`
-    
-      - This runs each SLiM simulation `-nreps` times, parses the
+-   Python driver: `new_driver.py`
+
+    -   This runs each SLiM simulation `-nreps` times, parses the
         output, and writes the desired results to a csv file that will
         be copied back to my home directory.
 
-  - Text file with commands: `slim_job_params.txt`
+-   Text file with commands: `slim_job_params.txt`
 
-  - Shell script that I’ll submit to SLURM: `slim_job.sh`
-    
-      - This is an array of length 7.
-      - I use the SLURM\_ARRAY\_TASK\_ID environmental variable to grab
+-   Shell script that I’ll submit to SLURM: `slim_job.sh`
+
+    -   This is an array of length 7.
+    -   I use the SLURM\_ARRAY\_TASK\_ID environmental variable to grab
         a specific line of my param txt file. Each line will tells
         Python to modify my SLiM file to simulate a specific promoter.
-          - For example, the 2nd array job will run `python
-            new_driver.py -d zpgX -nreps 2 -header`, which simulates a
-            zpgX promoter 2 times and creates a csv file with 2 lines
-            (`slim_result_2.csv`)
-
-<!-- end list -->
+        -   For example, the 2nd array job will run
+            `python new_driver.py -d zpgX -nreps 2 -header`, which
+            simulates a zpgX promoter 2 times and creates a csv file
+            with 2 lines (`slim_result_2.csv`)
 
 ``` bash
 cat slim_job.sh
@@ -488,98 +507,72 @@ cat trial_job.sh
     on the mounted storage? What is the best strategy when there are a
     lot of large input files?
 
-<!-- end list -->
-
-  - It’s usually best to just copy all the files over to a scratch
+-   It’s usually best to just copy all the files over to a scratch
     directory. If you have hundreds of GBs to transfer, this will
     probably take 30 mins to an hour.
-  - Some exceptions:
-      - If you only need to read a file into memory once, it might be
+-   Some exceptions:
+    -   If you only need to read a file into memory once, it might be
         okay to just work directly off the mounted server. (If the mount
         ends up hanging, this will likely only harm *your* job).
-      - You never need to copy **program files** over. You can mount
+    -   You never need to copy **program files** over. You can mount
         `cbsunt246` and call programs stored there as per usual.
-      - You can request to use our `cbsubscb16` machine for the job
+    -   You can request to use our `cbsubscb16` machine for the job
         using the header: `--nodelist=cbsubscb16`. Then you can access
         all files in `cbsubscb16` directory without needing to copy
         files. However, your job might take a long time to start if no
         nodes on `cbsubscb16` are available.
 
-<!-- end list -->
-
 2.  Should we use `scp` or `rsync` instead of mounting `cbsunt246` and
     copying files from there?
 
-<!-- end list -->
-
-  - `scp` is preferrable, since mounting the server requires an extra
+-   `scp` is preferrable, since mounting the server requires an extra
     layer of computation.
-  - `rsync` is also fine
-      - ex usage: `scp cbsubscb16:/local/storage/path-to-file $DIR`
-  - You *will* need to enter a password (which could mess up SLURM
+-   `rsync` is also fine
+    -   ex usage: `scp cbsubscb16:/local/storage/path-to-file $DIR`
+-   You *will* need to enter a password (which could mess up SLURM
     scripts). To avoid this, create a passwordless ssh (follow
     directions in the
     [guide](https://biohpc.cornell.edu/lab/cbsubscb_SLURM.htm))
 
-<!-- end list -->
-
 3.  How is job priority determined? Can we get an overview of server
     usage per lab every once in a while?
 
-<!-- end list -->
-
-  - Usage is calculated from number of CPUs and computing time
-  - You are first ranked by lab and then by user within each lab
-  - Usage reports are generated every Monday; Robert can send them to
+-   Usage is calculated from number of CPUs and computing time
+-   You are first ranked by lab and then by user within each lab
+-   Usage reports are generated every Monday; Robert can send them to
     members or PIs who are interested.
-
-<!-- end list -->
 
 4.  Do we need to specify `--account=nt246_0001` each time we submit a
     job for a Therkildsen lab project if our account is under more than
     one lab group?
 
-<!-- end list -->
-
-  - Everyone has a “default” lab group. (Robert can give you this info
+-   Everyone has a “default” lab group. (Robert can give you this info
     if you request it).
-  - To prevent slowing down/flagging the wrong account, specify the
+-   To prevent slowing down/flagging the wrong account, specify the
     account in the header.
-
-<!-- end list -->
 
 5.  How do you suggest figuring out the time and memory requirements for
     SLURM scripts?
 
-<!-- end list -->
-
-  - It’s mostly trial and error, as stated in the guide.
-  - Most programs state how their memory requirements scale with the
+-   It’s mostly trial and error, as stated in the guide.
+-   Most programs state how their memory requirements scale with the
     size of the data in the user manual.
-  - There’s currently no BioHPC database on job requirements
-
-<!-- end list -->
+-   There’s currently no BioHPC database on job requirements
 
 6.  What’s your advice on backing up files?
 
-<!-- end list -->
-
-  - If you can’t generate the data within a week of computation, back it
+-   If you can’t generate the data within a week of computation, back it
     up.
-  - Always keep 2 copies.
-  - Both `cbsunt246` and `cbsubscb16` are rate 6 (everything will be
+-   Always keep 2 copies.
+-   Both `cbsunt246` and `cbsubscb16` are rate 6 (everything will be
     fine if 2 discs fail).
-      - They monitor discs, so they usually know when one is “on the
+    -   They monitor discs, so they usually know when one is “on the
         edge”
-      - Backup through biohpc and nt246 are equal in price and efficacy
-
-<!-- end list -->
+    -   Backup through biohpc and nt246 are equal in price and efficacy
 
 7.  How can we use RStudio on the cluster without cheating the system?
 
-<!-- end list -->
-
-  - Run RStudio from an interactive session. [See
+-   Run RStudio from an interactive session. [See
     directions](https://biohpc.cornell.edu/lab/userguide.aspx?a=software&i=266#c)
 
 ex:
@@ -602,23 +595,17 @@ On your browser, log in from:
 
 8.  Is there an advantage of using SCREEN over salloc?
 
-<!-- end list -->
-
-  - SCREEN is a persistent session; it will keep running even if you log
-    off or exit the interactive job. (You cancel SCREEN using `scancel
-    JOBID`, like you would for a SLURM script). It terminates once your
-    time or memory limits are reached.
-  - `salloc` will terminate any programs you’re running as soon as you
+-   SCREEN is a persistent session; it will keep running even if you log
+    off or exit the interactive job. (You cancel SCREEN using
+    `scancel JOBID`, like you would for a SLURM script). It terminates
+    once your time or memory limits are reached.
+-   `salloc` will terminate any programs you’re running as soon as you
     log off or exit
-
-<!-- end list -->
 
 9.  We have a lot of scripts written for the stand-alone server. Is
     there a best strategy to make these cluster-compatible?
 
-<!-- end list -->
-
-  - This shouldn’t be too difficult. You need to remember to:
+-   This shouldn’t be too difficult. You need to remember to:
     1.  Adjust paths (ex: prefix with `/fs/`)
     2.  Add SLURM headers (or remember to submit the script with the
         desired job options)
@@ -626,54 +613,38 @@ On your browser, log in from:
         paths](https://biohpc.cornell.edu/lab/labsoftware.aspx), or
         alternatively, mount the `cbsunt246` server and use our own copy
 
-<!-- end list -->
-
 10. What if occasionally we produce more tmp files than 246GB in the
     scratch space? Will tmp files be deleted?
 
-<!-- end list -->
-
-  - No, nothing should be removed while the script is running.
-  - Theoretically, tmp file production shouldn’t be limited, provided
+-   No, nothing should be removed while the script is running.
+-   Theoretically, tmp file production shouldn’t be limited, provided
     that time and memory requirements set by the job are not reached.
-  - That being said the scratch space is memory limited. It should be
+-   That being said the scratch space is memory limited. It should be
     able to handle several hundred GB files at once, but if others are
     using the same scratch space, you might have problems.
-  - SLURM does not have a way to limit disc access. i.e. there’s no way
+-   SLURM does not have a way to limit disc access. i.e. there’s no way
     to control different jobs access to scratch space
-
-<!-- end list -->
 
 11. What are the best times/dates to submit jobs to the cluster?
 
-<!-- end list -->
-
-  - Varies by day, but things tend to get busy with the grant cycle.
-  - Use `squeue` or `slurm_stat.pl` to get usage information, or
+-   Varies by day, but things tend to get busy with the grant cycle.
+-   Use `squeue` or `slurm_stat.pl` to get usage information, or
     `squeue_l` for even more information
-
-<!-- end list -->
 
 12. Can we use the scratch space shared by all groups?
 
-<!-- end list -->
-
-  - This is up to the other PIs, but it’s mostly full already.
-
-<!-- end list -->
+-   This is up to the other PIs, but it’s mostly full already.
 
 13. Other information?
 
-<!-- end list -->
-
-  - Don’t ever submit a job from a directory that is not available from
+-   Don’t ever submit a job from a directory that is not available from
     *all* machines.
-      - Home directories are always mounted
-      - You can specify the directory you want the job to start in with
+    -   Home directories are always mounted
+    -   You can specify the directory you want the job to start in with
         the header: `--chdir=/home/bukowski/slurm`
-  - Some applications, such as `x11` and `Docker deamon`, are tricky and
+-   Some applications, such as `x11` and `Docker deamon`, are tricky and
     operate outside of SLURM
-  - The number of nodes has to be specified (with `-N 1`). There is no
+-   The number of nodes has to be specified (with `-N 1`). There is no
     default. Make sure to specify every time.
-  - If your job isn’t running, do some debugging on your own before
+-   If your job isn’t running, do some debugging on your own before
     contacting them.
