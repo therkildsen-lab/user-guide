@@ -181,7 +181,7 @@ BSCB Cluster Tutorial
 
 ``` bash
 # Create and move to a working directory for job
-WORKDIR=/SSD/$USER/$JOB_ID-$SLURM_ARRAY_TASK_ID
+WORKDIR=/SSD/$USER/$SLURM_JOB_ID-$SLURM_ARRAY_TASK_ID
 mkdir -p $WORKDIR
 cd $WORKDIR
 
@@ -292,7 +292,7 @@ cat simple_example.sh
     ## #SBATCH --output=simple_job.out
     ## 
     ## # Create working directory
-    ## WORKDIR=/SSD/$USER/$JOB_ID
+    ## WORKDIR=/SSD/$USER/$SLURM_JOB_ID
     ## mkdir -p $WORKDIR
     ## cd $WORKDIR
     ## 
@@ -410,7 +410,7 @@ cat slim_job.sh
     ## # The parameters for each array job are set by the text file.
     ## 
     ## # Create and move to working directory for job
-    ## WORKDIR=/SSD/$USER/$JOB_ID-$SLURM_ARRAY_TASK_ID
+    ## WORKDIR=/SSD/$USER/$SLURM_JOB_ID-$SLURM_ARRAY_TASK_ID
     ## mkdir -p $WORKDIR
     ## cd $WORKDIR
     ## 
@@ -479,7 +479,7 @@ cat trial_job.sh
     ## 
     ## # Make temporary working directory
     ## USER=ikk23
-    ## WORKDIR=/workdir/${USER}-${SLURM_JOB_ID}
+    ## WORKDIR=/workdir/${USER}/${SLURM_JOB_ID}
     ## mkdir $WORKDIR
     ## 
     ## # Mount the cbsunt246 server
