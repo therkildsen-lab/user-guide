@@ -25,7 +25,7 @@ BSCB Cluster Tutorial
 -   [Accessing files from `cbsunt246` within a script or interactive
     session on the
     cluster](#accessing-files-from-cbsunt246-within-a-script-or-interactive-session-on-the-cluster)
-    [Have Snakemake use SLURM for you](SLURM-Snakemake.md)
+-   [Have Snakemake use SLURM for you](SLURM-Snakemake.md)
 -   [Q & A with Robert Bukowski](#q--a-with-robert-bukowski)
 
 ## Resources
