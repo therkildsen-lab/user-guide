@@ -49,7 +49,7 @@ Within this folder,  create a file named `config.yaml` that looks like this:
 __use_yte__: true
 executor: slurm
 default-resources:
-  slurm_account: pd348
+  slurm_account: nt246_0001
   slurm_partition: regular
   mem_mb: attempt * 1500
   runtime: 10
@@ -69,29 +69,29 @@ The lines, explained:
 
 ### the basic configuration
 
-- `__use_yte__: true` lets Snakemake know to use an enhanced YAML interpreting engine that allows you to use shell environment variables like `$USER` and `$JOBID` etc.
+- `__use_yte__: true` lets Snakemake know to use an enhanced YAML interpreting engine-- don't think too much about it
 
-- `executor: slurm` this tells Snakemake to use that slurm exector plugin you installed earlier, which is configured to work for SLURM schedulers.
+- `executor: slurm` this tells Snakemake to use that slurm exector plugin you installed earlier, which is configured to work for SLURM schedulers
 
 - `default-resources` is a catch-all group that lets you put in scheduler-specific parameters that don't appear in Snakemake's command line options
   
-  - `slurm_account` is the user account that will interact with the SLURM scheduler, which in most cases should be your standard NetID account.
+  - `slurm_account` is the user account that will interact with the SLURM scheduler, which in most cases should be `nt246_0001`
   
   - `slurm_partition` is the name of the BioHPC partition your are requesting, such as `regular` or `long7`. The partition list can be found [here](https://biohpc.cornell.edu/lab/cbsubscb_SLURM.htm).
   
-  - `mem_mb` the maximum number of megabytes of memory to request for a given job
+  - `mem_mb` the maximum number of megabytes of memory to request for a given job if not specified in the `resources` directive within a rule
   
-  - `jobs` is the maximum number of jobs Snakemake is allowed to submit to SLURM at a given time.
+  - `jobs` is the maximum number of jobs Snakemake is allowed to submit to SLURM at a given time
   
-  - `runtime` is the time (in minutes) requested for the job
+  - `runtime` is the time (in minutes) requested for the jobs if not specified in the `resources` directive within a rule
 
-- `latency-wait` is the time, in seconds, Snakemake should wait after a job has finished to check if the expected outputs are present.
+- `latency-wait` is the time, in seconds, Snakemake should wait after a job has finished to check if the expected outputs are present
 
 - `retries` is the number of times Snakemake can try to resubmit a failed job. Works best when the Snakemake is setup to change things on retries, like increasing RAM per retry (e.g. `attempt * 1000`), requesting more time from the scheduler, etc. 
 
 ### automatic file I/O
 
-This part can be omitted if you don't need snakemake to move files in or out of `home2` (or another directory) between job submissions.
+This part can be omitted if you don't need snakemake to move files in or out of `home2` (or another directory) between job submissions
 
 - `default-storage-provider` is the type of filesystem to use, where `fs` is a locally mounted filesystem where things are moved (by Snakemake) using `rsync`. Other options can be explored [here](https://snakemake.github.io/snakemake-plugin-catalog/plugins/storage/fs.html#).
 
