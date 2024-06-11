@@ -48,4 +48,4 @@ params:
 
   editURL:
     enable: true
-    base: "https://github.com/therkildsen-lab/user-guide/edit/master/content"
+    base: "https://github.com/therkildsen-lab/user-guide/edit/main/content"
