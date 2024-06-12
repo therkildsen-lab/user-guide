@@ -44,7 +44,7 @@ The following example contains the most useful headers. You will need to
 delete the text within parentheses if you want to use this as a
 template.
 
-```bash filename={"example SLURM headers"}
+```bash {filename="example SLURM headers"}
 #!/bin/bash -l             (change the default shell to bash; '-l' ensures your .bashrc will be sourced in, thus setting the login environment)
 #SBATCH --nodes=1           (number of nodes, i.e., machines; all non-MPI jobs *must* run on a single node, i.e., '--nodes=1' must be given here)
 #SBATCH --ntasks=8          (number of tasks; by default, 1 task=1 slot=1 thread)
