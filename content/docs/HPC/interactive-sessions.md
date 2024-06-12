@@ -13,7 +13,7 @@ The old `cbsunt246` server has already been mounted onto the new
 
 Ex: accessing a `cbsunt246` file within an `salloc` interactive session
 
-``` bash
+```bash
 # log into the cluster
 ssh ikk23@cbsulogin2.tc.cornell.edu
 

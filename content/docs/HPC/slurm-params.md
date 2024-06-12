@@ -12,7 +12,7 @@ The BioHPC uses the SLURM scheduler for job submissions. What this means is that
 - Don’t do any computing directly on the login nodes or computingnodes (if you do, you’ll get angry emails).- Instead, either write everything in a script that you submit   using `sbatch`, or request an interactive session using   `salloc`.
 - It is also not recommended to do computing directly (i.e. read orwrite) with files that are network-mounted (i.e. `/fs/`, `/bscb/`,`/home/`), especially for jobs that are heavy in I/O.- Instead, start by creating a temporary directory under   `/workdir/` or `/SSD/` (if present).- Then, copy all the files you will need from the network mounted   storage space into the temporary directory.- Perform computation with files in the temporary directory.- Copy all desired output from the temporary directory back to   your network mounted storage space.- Delete the temporary directory at the end.- Below is an example of this workflow.
 
-``` bash
+```bash
 # Create and move to a working directory for job
 WORKDIR=/workdir/$USER/$SLURM_JOB_ID-$SLURM_ARRAY_TASK_ID
 mkdir -p $WORKDIR
@@ -72,13 +72,13 @@ Note that this option is only applicable for `sbatch`, but not `salloc`.
 
 For example,
 
-``` bash
+```bash
 sbatch --job-name=somename --nodes=1 --ntasks=6 --mem=4000 submit.sh
 ```
 
 or
 
-``` bash
+```bash
 salloc --nodes=1 --ntasks=6 --mem=4000
 ```
 
