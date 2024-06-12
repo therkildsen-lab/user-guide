@@ -1,3 +1,10 @@
+---
+title: Tutorials
+type: docs
+sidebar:
+  open: true
+---
+
 # Tutorials and useful background reading
 
 <br>

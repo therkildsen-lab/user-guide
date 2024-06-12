@@ -21,18 +21,15 @@ menu:
     - name: Docs
       pageRef: /docs
       weight: 1
-    - name: About
-      pageRef: /about
+    - name: Lab Website
+      url: "https://www.therkildsenlab.org/"
       weight: 2
-    - name: Contact ↗
-      url: "https://github.com/therkildsen-lab/"
-      weight: 3
     - name: Search
-      weight: 4
+      weight: 3
       params:
         type: search
     - name: GitHub
-      weight: 5
+      weight: 4
       url: "https://github.com/therkildsen-lab/user-guide"
       params:
         icon: github
@@ -40,8 +37,13 @@ menu:
 params:
   navbar:
     displayTitle: true
-    displayLogo: false
-
+    displayLogo: true
+  logo:
+      path: img/logo.png
+      dark: img/logo.png
+      link: /
+      width: 20
+      height: 20
   footer:
     displayCopyright: false
     displayPoweredBy: true

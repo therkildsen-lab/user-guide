@@ -1,41 +1,9 @@
-FAQs for using the Therkildsen lab CBSU server
-================
-
--   [Basic server usage](#basic-server-usage)
-    -   [Where can I get more information?](#where-can-i-get-more-information)
-    -   [How do I get a CBSU user account?](#how-do-i-get-a-cbsu-user-account)
-    -   [How do I access the server from an off-campus location?](#how-do-i-access-the-server-from-an-off-campus-location)
-    -   [How do I access the server?](#how-do-i-access-the-server)
-    -   [How do I transfer data?](#how-do-i-transfer-data)
-    -   [How do I check memory usage?](#how-do-i-check-memory-usage)
-    -   [How do I check the disk usage?](#how-do-i-check-the-disk-usage)
--   [Data backup](#data-backup)
-    -   [Where should we store the backup files?](#where-should-we-store-the-backup-files)
-    -   [What should be backed up?](#what-should-be-backed-up)
-    -   [When should files be backed up?](#when-should-files-be-backed-up)
-    -   [What should be deleted, and when?](#what-should-be-deleted-and-when)
-    -   [What are the practices that should be avoided?](#what-are-the-practices-that-should-be-avoided)
--   [Running programs on the server](#running-programs-on-the-server)
-    -   [Where do I run programs?](#where-do-i-run-programs)
-    -   [How do I install programs?](#how-do-i-install-programs)
-    -   [How do I run programs in the background?](#how-do-i-run-programs-in-the-background)
-    -   [How do I check job status?](#how-do-i-check-job-status)
-    -   [How do I kill a job?](#how-do-i-kill-a-job)
-    -   [How do I make scripts executable?](#how-do-i-make-scripts-executable)
-    -   [How do I control the number of threads a program uses?](#how-do-i-control-the-number-of-threads-a-program-uses)
-    -   [How do I set the priority of a process?](#how-do-i-set-the-priority-of-a-process)
--   [Using R on the server](#using-r-on-the-server)
-    -   [How to run RStudio on the server?](#how-to-run-rstudio-on-the-server)
-    -   [How to avoid plotting figures all over again every time when knitting an Rmd file?](#how-to-avoid-plotting-figures-all-over-again-every-time-when-knitting-an-rmd-file)
--   [Using GitHub on the server](#using-github-on-the-server)
-    -   [What are some basic things I need to know to use GitHub on the server?](#what-are-some-basic-things-i-need-to-know-to-use-github-on-the-server)
-    -   [How can I skip logging in each time that I use GitHub?](#how-can-i-skip-logging-in-each-time-that-i-use-github)
--   [Lab conventions](#lab-conventions)
-    -   [How do we name files, directories, objects, functions, and others?](#how-do-we-name-files-directories-objects-functions-and-others)
-    -   [How do we keep our analysis logs?](#how-do-we-keep-our-analysis-logs)
-    -   [What are some good coding practices recommended by the lab?](#what-are-some-good-coding-practices-recommended-by-the-lab)
--   [Miscellaneous tips](#miscellaneous-tips)
-    -   [How do I download files from NCBI's Short Read Archive (SRA)?](#how-do-i-download-files-from-ncbis-short-read-archive-sra)
+---
+title: Server FAQs
+type: docs
+sidebar:
+  open: true
+---
 
 ## Basic server usage
 

@@ -1,12 +1,26 @@
-# Code headers to include in coding scripts
+---
+title: Code headers to include in coding scripts
+type: docs
+sidebar:
+  open: true
+---
 
-Scripts of code can get real messy really quickly. The main thing that one can do to keep a script from becoming unuseable once you've forgotten the nitty-gritty of how you set everything up is to make sure you include proper comments within your code.
-There has been a lot of great work done on how to properly comment code (e.g. [Microsoft's commenting guidelines](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/program-structure/comments-in-code), so let's not belabour the point here.
+Scripts of code can get real messy really quickly. The main thing that one can
+do to keep a script from becoming unuseable once you've forgotten the nitty-gritty
+of how you set everything up is to make sure you include proper comments within
+your code. There has been a lot of great work done on how to properly comment
+code (e.g. [Microsoft's commenting guidelines](https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/program-structure/comments-in-code)),
+so let's not belabour the point here.
 
-Another nice thing to do is to include a proper header file at the beginning of your code. 
-This header file should include any naming schemes being used (e.g. "This script was orginally named ScriptyMcShellFace.sh, and I've renamed this version to BoringName.sh"), as well as the basic purpose of the code, the name of the original author of the script, and the names of any other authors contributing to this script.
+Another nice thing to do is to include a proper header file at the beginning of
+your code. This header file should include any naming schemes being used
+(e.g. "This script was orginally named ScriptyMcShellFace.sh, and I've renamed
+this version to BoringName.sh"), as well as the basic purpose of the code, the
+name of the original author of the script, and the names of any other authors
+contributing to this script.
 
-Here below is an example header from an R script named `Redund_clean.R` used to generate simulations for a publication, and made publicly avaialble on GitHub:
+Here below is an example header from an R script named `Redund_clean.R` used
+to generate simulations for a publication, and made publicly avaialble on GitHub:
 ```
 ## Originally: redundancy.R
 ## Katie E Lotterhos

@@ -1,14 +1,29 @@
-# Naming conventions
+---
+title: Lab Conventions
+type: docs
+sidebar:
+  open: true
+---
 
-**Github repos**: kebab (dashes in place of spaces)
+## Naming conventions
 
-**Directories on the server**: snake-case (all lowercase with _ in place of spaces)
+### Github repos kebab
+- Style: dashes in place of spaces
+- Example: `this-is-a-kebab-case-name`
 
-**Shell scripts**: All uppercase for variable names
+### Directories on the server
+- Style: snake-case (all lowercase with _ in place of spaces)
+- Example: `this_is_a_snake_case_name`
 
-**R scripts**: snake-case for object and function names
+### Shell scripts
+- Style: All uppercase for variable names
+- Example: `WORKDIR=path/to/somewhere`
 
-# Programs
+### R scripts
+- Style: snake-case for object and function names
+- Example: `cod_pedigree <- read.table("cod_pedigree.txt")`
 
-**Analysis log**: Use a github formatted markdown file to keep track of your analysis logs. You can use Rmd to generate this markdown file. 
+## Programs
+## Analysis log
+Use a github formatted markdown file to keep track of your analysis logs. You can use RMarkdown to generate this markdown file. 
 
