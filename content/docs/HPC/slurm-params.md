@@ -46,7 +46,7 @@ The following example contains the most useful headers. You will need to
 delete the text within parentheses if you want to use this as a
 template.
 
-```bash
+```bash filename={"example SLURM headers"}
 #!/bin/bash -l             (change the default shell to bash; '-l' ensures your .bashrc will be sourced in, thus setting the login environment)
 #SBATCH --nodes=1           (number of nodes, i.e., machines; all non-MPI jobs *must* run on a single node, i.e., '--nodes=1' must be given here)
 #SBATCH --ntasks=8          (number of tasks; by default, 1 task=1 slot=1 thread)
@@ -102,7 +102,7 @@ Some other slurm options not specified in above examples include:
 ## Submission example using `sbatch`
 In the example below, `simple_example.sh` merges 365 fasta files into 1.
 
-```bash {filename=simple_example.sh"}
+```bash {filename="simple_example.sh"}
 #! /usr/bin/env bash
 ## #SBATCH --time=10:00
 ## #SBATCH --partition=short
