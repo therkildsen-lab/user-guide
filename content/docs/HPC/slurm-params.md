@@ -38,7 +38,7 @@ rm -r $WORKDIR
 Various options can be specified to control the various aspects of
 computing on a Slurm cluster. There are two ways to do this:
 
-{{% details title="via SBATCH headers" closed="true" %}}
+#### via SBATCH headers
 
 The following example contains the most useful headers. You will need to
 delete the text within parentheses if you want to use this as a
@@ -64,18 +64,12 @@ and submit it with `sbatch submit.sh`.
 
 Note that this option is only applicable for `sbatch`, but not `salloc`.
 
-{{% /details %}}
-
-{{% details title="Appending the options after sbatch or salloc on command" closed="true" %}}
-
-For example,
-
+#### Appending the options after sbatch or salloc on command
+For example
 ```bash
 sbatch --job-name=somename --nodes=1 --ntasks=6 --mem=4000 submit.sh
 ```
-
 or
-
 ```bash
 salloc --nodes=1 --ntasks=6 --mem=4000
 ```
@@ -85,17 +79,10 @@ command line options will override the `#SBATCH` headers, so it might be
 a good practice to use the headers as default settings and tweak them
 with command line when needed.
 
-{{% /details %}}
-
-{{% details title="Other SLURM options" closed="true" %}}
-
+#### Other SLURM options
 Some other slurm options not specified in above examples include:
-
 - `--nodelist`: computing nodes that you want your jobs to run on.E.g.`--nodelist=cbsubscb12`
 - `--exclude`: computing nodes that you **don’t** want your jobs torun on. E.g. `--exclude=cbsubscb10,cbsubscbgpu01`
-
-{{% /details %}}
-
 
 ## Submission example using `sbatch`
 In the example below, `simple_example.sh` merges 365 fasta files into 1.
