@@ -1,5 +1,5 @@
 ---
-title: other info
+title: Other Cluster Info
 type: docs
 sidebar:
   open: true
