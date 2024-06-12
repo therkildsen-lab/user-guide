@@ -10,12 +10,9 @@ sidebar:
 ### Where can I get more information?
 
 Most of the guides below apply to people who purchase hourly credits and don’t have their own physical servers, but there is still some useful information in these links:
-
-CBSU online user guide <http://cbsu.tc.cornell.edu/lab/userguide.aspx>
-
-quick start guide <http://cbsu.tc.cornell.edu/lab/userguide.aspx?a=quickstart>
-
-and storage guides <http://cbsu.tc.cornell.edu/lab/userguide.aspx?a=storage> <http://cbsu.tc.cornell.edu/lab/userguide.aspx?a=storageguide>
+- CBSU online user guide <http://cbsu.tc.cornell.edu/lab/userguide.aspx>
+- quick start guide <http://cbsu.tc.cornell.edu/lab/userguide.aspx?a=quickstart>
+- storage guides <http://cbsu.tc.cornell.edu/lab/userguide.aspx?a=storage> <http://cbsu.tc.cornell.edu/lab/userguide.aspx?a=storageguide>
 
 ### How do I get a CBSU user account?
 
@@ -24,144 +21,97 @@ If you have a user account already created, you need to set your password: <http
 Type in your user id (should be the same as your NetID) and click submit. A link to set new password will be sent to your e-mail.
 
 ### How do I access the server from an off-campus location?
-
 To access server from off-campus:
-
-1.  Download Cisco AnyConnect Secure Mobility Client
-
-2.  Open program and connect to VPN: cuvpn.cuvpn.cornell.edu
-
-3.  Use your Cornell NetID password when prompted
-
-4.  More info here: <https://cbsu.tc.cornell.edu/lab/doc/Remote_access.pdf>
+1. Download Cisco AnyConnect Secure Mobility Client
+2. Open program and connect to VPN: cuvpn.cuvpn.cornell.edu
+3. Use your Cornell NetID password when prompted
+4. More info here: <https://cbsu.tc.cornell.edu/lab/doc/Remote_access.pdf>
 
 ### How do I access the server?
-
 Connect to server:
-
-1.  Launch Terminal (Macs only; for PC users see <https://cbsu.tc.cornell.edu/lab/doc/Remote_access.pdf>)
-
+1.  Launch Terminal (macOS/Linux only; for PC users see <https://cbsu.tc.cornell.edu/lab/doc/Remote_access.pdf>)
 2.  Type `ssh yournetid@cbsunt246.tc.cornell.edu`
-
 3.  Enter the password you created above
 
 Once logged in, you will be in your network-mounted /home/yournetid/ directory. We also have a shared home directory for the lab with 2TB of backed up storage in `/home/backup/`. This is where we have been backing up important files (fastq and bam files, scripts, etc.) so far.
 
 ### How do I transfer data?
-
 To transfer files between your local computer and the server (good for &lt;1-2 GB files):
-
 1.  Connect to VPN if not on campus
-
 2.  Open a new terminal window or tab (i.e. not a terminal already connected to the server)
-
 3.  Use rsync to transfer data from the server to your computer with the command:
-
-`rsync -av -progress -e ssh yournetid@cbsunt246.tc.cornell.edu:/workdir/Path/To/Your/File.txt /Path/To/Your/Local/Directory/`
-
-1.  to transfer data from your computer to the server, use:
-
-`rsync -av -progress /Path/To/Your/Local/File/ -e ssh yournetid@cbsunt246.tc.cornell.edu:/workdir/Path/To/Your/Directory/`
-
-1.  Use wildcards `*` to sync lots of files, or you can sync a whole directory. Rsync will only sync files that have changed, and won’t re-write ones that haven’t.
-
-If you have lots of files, big files, or need to transfer between two remote servers, use Globus. See <https://cbsu.tc.cornell.edu/lab/doc/Globus_at_BioHPC_Lab.pdf>
-
-You can also use Filezilla. See <https://biohpc.cornell.edu/lab/doc/UsingFileZilla.pdf>
+```bash
+rsync -av -progress -e ssh yournetid@cbsunt246.tc.cornell.edu:/workdir/Path/To/Your/File.txt /Path/To/Your/Local/Directory/
+```
+  - to transfer data from your computer to the server, use:
+  ```
+  rsync -av -progress /Path/To/Your/Local/File/ -e ssh yournetid@cbsunt246.tc.cornell.edu:/workdir/Path/To/Your/Directory/
+  ```
+  -  Use wildcards `*` to sync lots of files, or you can sync a whole directory. Rsync will only sync files that have changed, and won’t re-write ones that haven’t. If you have lots of files, big files, or need to transfer between two remote servers, use Globus. See <https://cbsu.tc.cornell.edu/lab/doc/Globus_at_BioHPC_Lab.pdf>
+  - You can also use Filezilla. See <https://biohpc.cornell.edu/lab/doc/UsingFileZilla.pdf>
 
 ### How do I check memory usage?
+Keep an eye on memory and node usage with the `top` or fancier `htop` commands:
+```bash
+htop
 
-Keep an eye on memory and node usage with the command:
+# or #
 
-`htop`
-
+top
+```
 A window showing jobs on all 56 nodes and total memory usage will appear. (Be careful not to exceed the 252GB memory, or the server will crash.) Close the window with Control+c. You can also list jobs that are running but aren’t taking up CPU (e.g. crashed jobs) using:
-
-`ps –ef | grep yournetid`
+```bash
+ps –ef | grep yournetid
+```
 
 ### How do I check the disk usage?
-
 To check how much space each directory on the /workdir/ is taking up:
-
-`du -sh /workdir/*`
-
+```bash
+du -sh /workdir/*
+```
 To check how much free space is left:
-
-`df -h /workdir/`
+```bash
+df -h /workdir/
+```
 
 ## Data backup
-
 ### Where should we store the backup files?
-
-For sequencing data and other large files (&gt;30MB), you should use `/workdir/backup/`.
-
-For small files such as scripts, markdown files, certain figures, and others, you can store them under your project directory, which should also be a GitHub repo. You can then use GitHub to back up these files.
-
-For sample metadata, you should use lab Google Drive to back them up.
+- For sequencing data and other large files (&gt;30MB), you should use `/workdir/backup/`.
+- For small files such as scripts, markdown files, certain figures, and others, you can store them under your project directory, which should also be a GitHub repo. You can then use GitHub to back up these files.
+- For sample metadata, you should use lab Google Drive to back them up.
 
 ### What should be backed up?
-
-1.  Zipped raw fastq files (essential)
-
-2.  Zipped ready to map (adapter trimmed and renamed (demultiplexed if applicable) (optional)
-
-3.  Raw bam files (unmapped reads removed, but not filtered for mapping quality etc). Only save `.bam` files here, never `.sam`. When we have multiple fastq files per individual, map first, then merge bams (optional)
-
-4.  Realigned, filtered bam files (following indel re-alignment, filtering on mapping quality, removal of duplicates). If there are multiple bam files per individual, merge before cleaning, esp. before removing duplicates.
-
-5.  Sample lists (needed for keeping track of the bam files) - put on Github
-
-6.  SNP lists (lists of called SNP sets used for downstream analysis) - put on Github
-
-7.  Major result files used for downstream analysis (e.g. mafs files) (optional)
-
-8.  Ones that take a long time to run and that you’ll need to re-use
-
-9.  All scripts used to process the data. There should be one master scripts that will run the full analysis pipeline (essential), but all intermediate scripts should be saved as well.
+1. Zipped raw fastq files (essential)
+2. Zipped ready to map (adapter trimmed and renamed (demultiplexed if applicable) (optional)
+3. Raw bam files (unmapped reads removed, but not filtered for mapping quality etc). Only save `.bam` files here, never `.sam`. When we have multiple fastq files per individual, map first, then merge bams (optional)
+4. Realigned, filtered bam files (following indel re-alignment, filtering on mapping quality, removal of duplicates). If there are multiple bam files per individual, merge before cleaning, esp. before removing duplicates.
+5. Sample lists (needed for keeping track of the bam files) - put on Github
+6. SNP lists (lists of called SNP sets used for downstream analysis) - put on Github
+7. Major result files used for downstream analysis (e.g. mafs files) (optional)
+8. Ones that take a long time to run and that you’ll need to re-use
+9. All scripts used to process the data. There should be one master scripts that will run the full analysis pipeline (essential), but all intermediate scripts should be saved as well.
 
 ### When should files be backed up?
-
-You should back up the raw fastq files and sample metadata as soon as possible.
-
-You should back up the analysis scripts often while you are working on them.
-
-You can start backing up the other files as long as moving them do not interfere with your workflow. Do note that you should avoid reading and (especially) writing under `/workdir/backup/` as much as possible.
+- You should back up the raw fastq files and sample metadata as soon as possible.
+- You should back up the analysis scripts often while you are working on them.
+- You can start backing up the other files as long as moving them do not interfere with your workflow. Do note that you should avoid reading and (especially) writing under `/workdir/backup/` as much as possible.
 
 ### What should be deleted, and when?
+- TODO
 
 ### What are the practices that should be avoided?
-
-Don’t move things around or re-name files unless there is reason to (it’s ok to do if there is)
-
-Don’t work directly in the backup folder, i.e. don’t have your mapping program write sam files into the backup folder and then convert. Do that in your working directory and then move over the bam files to be backed up.
-
-Don't store files in multiple places
+- Don’t move things around or re-name files unless there is reason to (it’s ok to do if there is)
+- Don’t work directly in the backup folder, i.e. don’t have your mapping program write sam files into the backup folder and then convert. Do that in your working directory and then move over the bam files to be backed up.
+- Don't store files in multiple places
 
 ## Running programs on the server
-
 ### Where do I run programs?
-
 All processes (except really tiny jobs) must be done on the local server, /workdir/. To connect to the local server: `cd /workdir/`
 
 ### How do I install programs?
-
-There are many programs installed system-wide. A list of software and details on how to use it, see <https://cbsu.tc.cornell.edu/lab/labsoftware.aspx>.
-
-You can request installation of software not listed on the CBSU website using the Contact Us link, but installation may take a few days.
-
-You may also install programs locally yourself. Please always intall new programs under `/workdir/programs/`. You should also **keep track of the version number of the program** by first creating a new directory with the program name and version number, and install the program in this directory.
-
-### How do I run programs in the background?
-
-Run commands in the background (i.e. so that you can disconnect and the process will continue running) using nohup. For example, a process normally run with the command:
-
-`program argument1 argument2`
-
-would be run with:
-
-`nohup program argument1 argument2 >& logfile.nohup &`
-
-Output normally printed to the screen would be printed to logfile.nohup.
+- There are many programs installed system-wide. A list of software and details on how to use it, see <https://cbsu.tc.cornell.edu/lab/labsoftware.aspx>.
+- You can request installation of software not listed on the CBSU website using the Contact Us link, but installation may take a few days.
+- You may also install programs locally yourself. Please always intall new programs under `/workdir/programs/`. You should also **keep track of the version number of the program** by first creating a new directory with the program name and version number, and install the program in this directory.
 
 ### How do I check job status?
 

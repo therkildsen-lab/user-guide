@@ -19,7 +19,7 @@ this version to BoringName.sh"), as well as the basic purpose of the code, the
 name of the original author of the script, and the names of any other authors
 contributing to this script.
 
-Here below is an example header from an R script named `Redund_clean.R` used
+Below is an example header from an R script named `Redund_clean.R` used
 to generate simulations for a publication, and made publicly avaialble on GitHub:
 ```
 ## Originally: redundancy.R

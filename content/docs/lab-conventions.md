@@ -7,21 +7,21 @@ sidebar:
 
 ## Naming conventions
 
-### Github repos kebab
-- Style: dashes in place of spaces
-- Example: `this-is-a-kebab-case-name`
+### Github repos
+- **Style**: dashes in place of spaces
+- **Example**: `this-is-a-kebab-case-name`
 
 ### Directories on the server
-- Style: snake-case (all lowercase with _ in place of spaces)
-- Example: `this_is_a_snake_case_name`
+- **Style**: snake-case (all lowercase with _ in place of spaces)
+- **Example**: `this_is_a_snake_case_name`
 
 ### Shell scripts
-- Style: All uppercase for variable names
-- Example: `WORKDIR=path/to/somewhere`
+- **Style**: All uppercase for variable names
+- **Example**: `WORKDIR=path/to/somewhere`
 
 ### R scripts
-- Style: snake-case for object and function names
-- Example: `cod_pedigree <- read.table("cod_pedigree.txt")`
+- **Style**: snake-case for object and function names
+- **Example**: `cod_pedigree <- read.table("cod_pedigree.txt")`
 
 ## Programs
 ## Analysis log

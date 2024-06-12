@@ -1,9 +1,11 @@
 ---
-title: Get Snakemake to submit jobs via SLURM
+title: Snakemake + SLURM 
 type: docs
 sidebar:
   open: true
 ---
+
+# Get Snakemake to submit jobs via SLURM
 
 Snakemake (version 8+) has a fantastic feature of submitting jobs to SLURM (or other schedulers) on your behalf. This feature existed in pervious versions too, but v8 is a complete rewrite of how it works and it's much, **much** simpler than before. This document will walk you through the things you'll need to know to get a Snakemake workflow to automate all of the logistics for working on the BioHPC
 

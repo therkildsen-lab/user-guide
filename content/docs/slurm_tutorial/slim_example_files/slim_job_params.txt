@@ -1,7 +1,0 @@
-python new_driver.py -d zpg -nreps 2 -header
-python new_driver.py -d zpgX -nreps 2 -header
-python new_driver.py -d zpg_alt -nreps 2 -header
-python new_driver.py -d zpgX_alt -nreps 2 -header
-python new_driver.py -d nanos -nreps 2 -header
-python new_driver.py -d nanos_f_cost -nreps 2 -header
-python new_driver.py -d nanos_fm_cost -nreps 2 -header
