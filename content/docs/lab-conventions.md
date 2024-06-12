@@ -5,7 +5,6 @@ sidebar:
   open: true
 ---
 
-# Naming conventions
 For sanity and consistency, it's good practice to be intentional with how you name things. Below is the recommended conventions for different kinds of files.
 
 ## Github repos
