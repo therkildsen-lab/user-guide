@@ -38,9 +38,7 @@ rm -r $WORKDIR
 Various options can be specified to control the various aspects of
 computing on a Slurm cluster. There are two ways to do this:
 
-{{% details title="Through #SBATCH headers at the beginning of the shell script" closed="true" %}}
-
-This will be hidden by default.
+{{% details title="via SBATCH headers" closed="true" %}}
 
 The following example contains the most useful headers. You will need to
 delete the text within parentheses if you want to use this as a
@@ -68,7 +66,7 @@ Note that this option is only applicable for `sbatch`, but not `salloc`.
 
 {{% /details %}}
 
-{{% details title="By appending the options after sbatch or salloc on command" closed="true" %}}
+{{% details title="Appending the options after sbatch or salloc on command" closed="true" %}}
 
 For example,
 
