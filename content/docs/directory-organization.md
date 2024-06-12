@@ -44,8 +44,12 @@ In all, a practical project directory can look like:
     {{< filetree/file name="README.md" >}}
     {{< /filetree/folder name="data">}}
       {{< filetree/file name="README.md" >}}
+    {{< filetree/folder >}}
     {{< /filetree/folder name="results">}}
       {{< filetree/file name="README.md" >}}
+    {{< filetree/folder >}}
     {{< filetree/folder name="src" >}}
       {{< filetree/file name="README.md" >}}
+    {{< filetree/folder >}}
+  {{< filetree/folder >}}
 {{< /filetree/container >}}
