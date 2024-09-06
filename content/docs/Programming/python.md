@@ -22,8 +22,7 @@ but that's not important right now. Typically, you would install Python packages
 with one of its package managers, usually `pip`. There are other managers, like `poetry`, `conda`, `mamba`,
 but `pip` is the standard one for basic use. Installing a package would look like:
 
-```bash
-# this is a shell session, not inside a python session
+```bash {filename="this is a shell session, not inside a python session"}
 pip install pandas
 ```
 
@@ -45,8 +44,7 @@ a way to have your cake and eat it, worry-free.
 This design choice takes some getting used to, but it's really not so bad. The idea is that indentation
 specifies nesting hierarchy, therefore you don't need extra words/symbols to specify the end of a code block.
 To demonstrate this, let's compare `if` blocks between R and Python:
-```r
-# R
+```r {filename="R"}
 if(x > 3){
     x <- x + 5
 } else {
@@ -56,8 +54,7 @@ if(x > 3){
 In the R example above, the `if` statement requires paired parentheses (open and closed) for the logic test,
 along with paired curly braces for both `if` and `else` blocks. Conversely, in python, you begin your `if` block
 and use indentations to specify nesting:
-```python
-# python
+```python {filename="python"}
 if x > 3:
     x += 5
 else:
@@ -67,8 +64,7 @@ In most languages, indenting is an optional strategy to make code readable and l
 indentation is strictly enforced and part of your code. You can see how much cleaner and simpler the
 python example is. If we were to rewrite the `if` block without indentation, the python interprety will
 return an error:
-```python
-# python
+```python {filename="python"}
 if x > 3:
 x += 5
 else:
@@ -90,13 +86,13 @@ data types that can have *methods* specific to that class. Another use of the do
 class-specific functions. For example, if you have a string `"calamari"`, that's the string class.
 the string class has a series of methods (class-specific functions) that can be accessed by dot-indexing.
 One of them is `upper()`, which will capitalize all the letters of the string, and you would use it like this:
-```python
+```python {filename="dot-indexing the upper method"}
 squid = "calamari"
 squid.upper()
 # CALAMARI
 ```
 Another such method is `split()`, which splits a character string based on a pattern:
-```python
+```python {filename="dot-indexing the split method"}
 squid = "calamari"
 squid.split("l")
 # ["ca","amari"]
@@ -107,7 +103,7 @@ ways you are already familiar with, such as `length(object)` or `sum([1,2,3,4])`
 bit of getting used to the class-method system and does require a bit of cognitive overhead to know
 how to access a particular function/method. If you aren't sure, a great go-to would be to try tab-autocompletion
 after writing a dot to let the interpreter reveal the options. Here's an example:
-```python
+```python {filename="dot=indexing autocompletion"}
 >>> a = "calamari"
 >>> a.<tab>
 a.capitalize()    a.isalpha()       a.ljust(          a.rsplit(
@@ -128,7 +124,7 @@ You can also chain the methods together in this way. Chaining the methods would 
 Let's say we had a string that we wanted to first capitalize, then replace certain letters with other
 ones, then split on a specific character:
 
-```python
+```python {filename="chaining multiple methods"}
 >>> a = "calamari"
 >>> a.upper().replace("MAR", "LARA").split("A")
 # ['C', 'L', 'L', 'R', 'I']
