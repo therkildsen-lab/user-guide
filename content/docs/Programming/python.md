@@ -1,4 +1,11 @@
-# A TL;DR to Python
+---
+title: A TL;DR to Python
+type: docs
+sidebar:
+  open: true
+---
+
+# The very basics of Python
 
 Most of the time, you'll probably be working with R and Bash, but there just might be a situation where
 some tools you're interested in are implemented in Python. This page serves to cover some basics about
