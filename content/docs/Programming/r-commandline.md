@@ -43,7 +43,7 @@ What this does is create a variable `args` that will become a list of whatever p
 be indexed numerically to get the values of the positional arguments. In other words, `args[1]` would be the first positional argument, `args[2]`
 would be the second positional argument, etc. We can optionally separate these into their own variables to make it easier to work with the values.
 
-```r {filename="set up command arguments"}
+```r {filename="optionally split arguments"}
 #! /usr/bin/env Rscript
 
 args <- commandArgs(trailingOnly=TRUE)
@@ -88,4 +88,20 @@ library(dplyr)
 library(ggplot2)
 
 # do stuff here...
+```
+
+## make executable
+After you've made your script, make sure it's executable using `chmod`:
+
+```bash {filename="make it executable"}
+chmod +x estimateHET
+```
+
+You can optionally add it to your PATH to call it like a system program. In this example,
+we're adding it to `/usr/local/bin`, which requires admin priviledges to access. You can place
+it in a local PATH, if you have one set up for your user account. A great place to make a local
+PATH is `~/.local/bin`, just make sure to add that folder to your PATH in your `~/.bashrc` or `~/.zshrc` file.
+
+```bash {filename="add it to your PATH"}
+cp ./estimateHET ~/.local/bin
 ```
