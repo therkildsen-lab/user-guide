@@ -72,7 +72,7 @@ library(ggplot2)
 ### write code as usual
 After this initial setup, you can use `threads` and `vcf` as normal and write out as simple or as complicated of a script
 as required. If you need to create plots, you will probably want to use `png()` or `ggsave()` to have the script take care of
-saving the plots. You can likewise write any tables/text/etc. to files as per usual. In all, our `estimateHET` script will look
+saving the plots. You can likewise write any tables/text/etc. to files as you would usually do. In all, our `estimateHET` script will look
 like:
 
 ```r {filename="final script"}
@@ -84,8 +84,8 @@ vcf <- args[2]
 
 # input checks and docstring
 
-library(dplyr)
-library(ggplot2)
+# load any libraries
+library(...)
 
 # do stuff here...
 ```
@@ -98,10 +98,11 @@ chmod +x estimateHET
 ```
 
 You can optionally add it to your PATH to call it like a system program. In this example,
-we're adding it to `/usr/local/bin`, which requires admin priviledges to access. You can place
-it in a local PATH, if you have one set up for your user account. A great place to make a local
-PATH is `~/.local/bin`, just make sure to add that folder to your PATH in your `~/.bashrc` or `~/.zshrc` file.
+we're adding it to  `~/.local/bin`, which is a great place to make a local
+PATH. If the folder doesn't exist, you can create it, just make sure to add that folder to
+your PATH in your `~/.bashrc` or `~/.zshrc` file.
 
 ```bash {filename="add it to your PATH"}
+mkdir -p ~/.local/bin
 cp ./estimateHET ~/.local/bin
 ```
