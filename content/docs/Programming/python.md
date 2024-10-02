@@ -29,14 +29,28 @@ pip install pandas
 ## 2. importing packages
 In R, you load libraries using `library(package)`, typically at the top of a script. In python,
 it's the same idea, except the syntax is a little different and more flexible. With Python, you
-import packages using `import package`. You can also selectively import modules from packages, like
-`from pathlib import Path`, which reads intuitively as  "from the `pathlib` library, import `Path`".
+import packages using `import` like so:
+```python
+import package
+```
+ You can also selectively import modules from packages:
+```python
+from pathlib import Path
+```
+which reads intuitively as  "from the `pathlib` library, import `Path`".
 Another thing you can do is alias your import, i.e. give it a different name. You can accomplish that
-using the syntax `import pandas as pd`, which reads intuitively as "import the `pandas` library and
+using the syntax:
+```python
+import pandas as pd
+```
+which reads intuitively as "import the `pandas` library and
 for the remainder of the script, let's reference `pandas` as `pd`". The aliasing is an awesome feature
 to give you fewer keystrokes, but also to avoid namespace clashes when a library you want to import
-has a function that would clash with an existing function, like `print`. A simple example would be
-`from rich import print as rprint`, which would import the `print` function from the `rich` library
+has a function that would clash with an existing function, like `print`. A simple example would be:
+```python
+from rich import print as rprint
+```
+which would import the `print` function from the `rich` library
 and alias it as `rprint` so you can be explicit when you are trying to use the `rich` version. It's
 a way to have your cake and eat it, worry-free.
 
@@ -103,7 +117,7 @@ ways you are already familiar with, such as `length(object)` or `sum([1,2,3,4])`
 bit of getting used to the class-method system and does require a bit of cognitive overhead to know
 how to access a particular function/method. If you aren't sure, a great go-to would be to try tab-autocompletion
 after writing a dot to let the interpreter reveal the options. Here's an example:
-```python {filename="dot=indexing autocompletion"}
+```python {filename="dot-indexing autocompletion"}
 >>> a = "calamari"
 >>> a.<tab>
 a.capitalize()    a.isalpha()       a.ljust(          a.rsplit(
