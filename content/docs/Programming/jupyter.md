@@ -1,4 +1,9 @@
-# Automating your Jupyter Notebook as a Website
+---
+title: Jupyter Notebooks as Websites
+type: docs
+sidebar:
+  open: true
+---
 
 ## Preface
 Pavel had this wild idea of tracking his workflow for a project in a Jupyter notebook
