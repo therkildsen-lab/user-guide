@@ -36,6 +36,7 @@ jupyter-book init --gh-pages
 ```
 This will create the necessary configs in your local-repo, along with the GitHub Actions workflow to
 **automatically build the website** when you push changes to the repository.
+
 4. Open the `myst.yml` file that was just created an fill in the necessary details (if you want)
 5. Commit the changes via `git`, `gh`, `VScode`, or whatever method you typically use. If you use `git`, it would look like:
 ```bash
