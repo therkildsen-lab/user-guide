@@ -20,31 +20,19 @@ civic duty to yourself and fellow researchers by building it into a static websi
 transparency, etc., and this is a way to actually work towards being better at transparency.
 
 ## What you need
-- a jupyter notebook with at least one Markdown or code cell
-- jupyterbook (only at first)
-- a GitHub account
+The lab has a [template repository](https://github.com/therkildsen-lab/jupyter-workflow) to set this up pretty seamlessly.
+### Option 1 - click a button
+On the top-right side of the page you can press the green "Use this template" button to **Create a new repository**
+### Option 2 - clone the repo
+```bash
+git clone https://github.com/therkildsen-lab/jupyter-workflow.git
+```
 
-## How to do it
-1. Create a GitHub repository to associate with this project and put the Notebook into it
-2. Clone at repository locally, usually along the lines of:
-```bash
-git clone https://github.com/ACCOUNT/REPO_NAME.git
-```
-3. Open a terminal and navigate to the folder of the repository you just cloned and type:
-```bash
-jupyter-book init --gh-pages
-```
-This will create the necessary configs in your local-repo, along with the GitHub Actions workflow to
-**automatically build the website** when you push changes to the repository.
+That's it. The repository has already has a GitHub action to build and deploy the site on pushes.
 
-4. Open the `myst.yml` file that was just created an fill in the necessary details (if you want)
-5. Commit the changes via `git`, `gh`, `VScode`, or whatever method you typically use. If you use `git`, it would look like:
-```bash
-git add -A
-git commit -m "setup jupyterbook configs"
-git push
-```
-6. On the GitHub website, go to the **Settings** tab above your repository and find the **Pages** section at the bottom of the
+- You can delete the `README.md` file, or rewrite it to better describe the repository.
+- You will need to modify the `myst.yml` file that was just created an fill in the necessary details (if you want)
+- If not setup, on the GitHub website, go to the **Settings** tab above your repository and find the **Pages** section at the bottom of the
 `Code and Automation` pane on the left side. Under `Build and deployment`, change the `Source` to `GitHub Actions`
 
 That should be the minimum necessary to get you started. With this setup, you will be able to have multiple Notebooks or Markdown
