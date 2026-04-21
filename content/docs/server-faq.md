@@ -1,6 +1,7 @@
 ---
 title: Server FAQs
 type: docs
+weight: 1
 sidebar:
   open: true
 ---
