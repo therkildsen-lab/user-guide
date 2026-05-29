@@ -14,5 +14,4 @@ The repository is setup to automagically build and deploy this website on `push`
 
 {{< cards >}}
   {{< card link="docs" title="User Guide" icon="book-open" >}}
-  {{< card link="https://www.therkildsenlab.org/" title="Lab Website" icon="user" >}}
 {{< /cards >}}

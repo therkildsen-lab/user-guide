@@ -18,11 +18,11 @@ markup:
 
 menu:
   main:
-    - name: Docs
+    - name: User Guide
       pageRef: /docs
       weight: 1
     - name: Lab Website
-      url: "https://www.therkildsenlab.org/"
+      url: "https://therkildsen-lab.github.io/"
       weight: 2
     - name: Search
       weight: 3
