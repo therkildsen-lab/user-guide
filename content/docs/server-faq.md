@@ -79,7 +79,7 @@ df -h /workdir/
 ### Where should we store the backup files?
 - For sequencing data and other large files (&gt;30MB), you should use `/workdir/backup/`.
 - For small files such as scripts, markdown files, certain figures, and others, you can store them under your project directory, which should also be a GitHub repo. You can then use GitHub to back up these files.
-- For sample metadata, you should use lab Google Drive to back them up.
+- For sample metadata, you should use [lab Google Drive](https://drive.google.com/drive/folders/0AAXDUhsoG4wHUk9PVA) to back them up.
 
 ### What should be backed up?
 1. Zipped raw fastq files (essential)
