@@ -75,6 +75,11 @@ To check how much free space is left:
 df -h /workdir/
 ```
 
+### How do jobs get prioritized?
+The way job priorities are calculated is to compute historical usage of each user, then compute each group's usage by summing up usage of all group members. The group usages are then sorted, user's usages are sorted within groups, and job priority is dependent on the rank resulting from this sorting. Before the sorting, the group and individual user usages are weighted, and currently all group weigths are equal and all user weights are equal.
+
+Members of a group who run a lot of jobs already have lower priority than the members whose cluster use is lighter. The priority only matters when there is competition for resources among pending jobs. If the cluster is empty, low priority jobs will start anyway and they will not be kicked out or slowed down because a higher-priority job got submitted. Higher-priority job will have to wait for some of the low-priority (but already running) jobs to finish. **Note**: priority distribution within our group will not help any lab members compete with other groups.
+
 ## Data backup
 ### Where should we store the backup files?
 - For sequencing data and other large files (&gt;30MB), you should use `/workdir/backup/`.
