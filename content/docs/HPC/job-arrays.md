@@ -5,8 +5,6 @@ sidebar:
   open: true
 ---
 
-## Job arrays
-
 - If you want to run an identical program 10 times, instead of using afor-loop, you can submit the script as a job array of length 10.This is controlled by the header: `#SBATCH --array=1-10`
 - Each array job will get its own unique ID, `SLURM_ARRAY_TASK_ID`,that you can make use of in your script.
 - If you want each job in a 1-10 array to run something different, youcan create a text file with 10 lines and have each line specify thecommand you want to run.- Make sure to copy this text file over to the temporary working   directory!- In the shell script, write:

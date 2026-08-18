@@ -5,7 +5,6 @@ sidebar:
   open: true
 ---
 
-
 > source: Q&A with Robert Bukowski
 
 1.  Some of our jobs involve a lot of large files and copying these overto a scratch directory would take a long time. Is this alwaysnecessary in SLURM scripts, or is it ever okay to compute directlyon the mounted storage? What is the best strategy when there are alot of large input files?

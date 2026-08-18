@@ -7,7 +7,7 @@ sidebar:
 
 For each new project you will usually want to have a separate dedicated folder to contain all major code scripts and output data related to that project. Even if you are re-using scripts that are already located in another project's folder, consider copying that code over into your new project folder, instead of reading it from another location.
 
-## Why?
+## Why you should
 The guiding principle should be that you want to be able to run your whole project's code (barring any software you have to download) using the scripts that are located within that project folder. That way, if you ever have to move your project files to another computer, you won't be missing any scripts on which you're dependent.
 
 So once you've made a new project folder, for example by using the `mkdir` command in the terminal

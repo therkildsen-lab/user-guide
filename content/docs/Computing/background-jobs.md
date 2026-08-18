@@ -5,7 +5,6 @@ sidebar:
   open: true
 ---
 
-# Running things in the background
 If you run things interactively (e.g. calling a program directly, running a script), disconnecting from your terminal session
 will prematurely terminate the program/script. Why would you disconnect?
 - accidentally close the terminal window
@@ -25,6 +24,8 @@ nohup program argument1 argument2 >& logfile.nohup &
 Output normally printed to the screen would be printed to `logfile.nohup`.
 
 ## with `screen` or `tmux`
+{{< badge content="RECOMMENDED" color="green" >}}
+
 An alternative is to use either `screen` or `tmux`, which are virtual emulators. These are persistent virtual sessions that can
 be entered/exited at will and wont terminate programs when you step out of it or get disconnected from it. For simplicity, we'll just cover `screen`:
 ```bash {filename="create a screen"}
@@ -40,6 +41,8 @@ screen -r NAME_OF_SCREEN
 ```
 
 ### making `screen` nicer
+{{< badge content="RECOMMENDED" color="green" >}}
+
 By default, `screen` is just a barebones virtual window and that sometimes gets tricky when you have multiple
 screens open, or don't know if you're in a screen, etc. Conveniently, `screen` can be customized, and for
 convenience, you can create the file `~/.screenrc` and populate it with this config:
@@ -81,4 +84,4 @@ shell "/usr/bin/zsh"
 
 By doing so, it will create a marquee at the bottom indicating what host you're on, the screen title, time, etc.
 It's very handy and highly recommended. It will look something like this:
-![configured screen](/content/img/screen.png)
+![configured screen](/images/screen.png)

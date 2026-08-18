@@ -1,5 +1,5 @@
 ---
-title: Code headers to include in coding scripts
+title: Code headers
 type: docs
 sidebar:
   open: true

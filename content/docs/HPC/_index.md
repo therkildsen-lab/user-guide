@@ -1,5 +1,5 @@
 ---
-title: HPC Information
+title: Using the HPC
 type: docs
 sidebar:
   open: true

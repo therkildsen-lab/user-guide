@@ -35,19 +35,27 @@ menu:
         icon: github
 
 params:
+  theme:
+    # light | dark | system
+    default: light
+    displayToggle: true
   navbar:
     displayTitle: true
     displayLogo: true
-  logo:
-      path: /img/logo.png
-      dark: /img/logo.png
-      link: /
-      width: 20
-      height: 20
+    logo:
+        path: images/logo.png
+        dark: images/logo.png
+        link: /
+        width: 40
+        height: 40
   footer:
     displayCopyright: false
     displayPoweredBy: true
-
   editURL:
     enable: true
     base: "https://github.com/therkildsen-lab/user-guide/edit/main/content"
+  # Display the last modification date
+  displayUpdatedDate: true
+  dateFormat: "January 2, 2006"
+  # Display the author of the last modification
+  displayUpdatedAuthor: true

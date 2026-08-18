@@ -1,15 +1,13 @@
 ---
-title: Snakemake + SLURM 
+title: Snakemake + SLURM
 type: docs
 sidebar:
   open: true
 ---
 
-# Get Snakemake to submit jobs via SLURM
-
 Snakemake (version 8+) has a fantastic feature of submitting jobs to SLURM (or other schedulers) on your behalf. This feature existed in pervious versions too, but v8 is a complete rewrite of how it works and it's much, **much** simpler than before. This document will walk you through the things you'll need to know to get a Snakemake workflow to automate all of the logistics for working on the BioHPC
 
-## 1. Make sure it's snakemake v8
+## 1. Make sure it's snakemake v8+
 
 Snakemake 8 has a much easier cluster submission system, so it'll need to be updated to major version 8, which also requires python version 3.12 to be manually specified
 
@@ -34,7 +32,7 @@ mamba create -n snakemake -c bioconda -c conda-forge snakemake=8
 mamba activate snakemake
 ```
 
-### install the plugins
+## 2. Install the plugins
 
 Then, add the SLURM executor plugin and filesystem plugin
 
@@ -42,7 +40,7 @@ Then, add the SLURM executor plugin and filesystem plugin
 mamba install -c bioconda -c conda-forge snakemake-executor-plugin-slurm snakemake-storage-plugin-fs
 ```
 
-# 2. Setting up a SLURM profile config
+## 3. Setting up a SLURM profile
 
 To use the Snakemake SLURM stuff, you'll need a config file, in YAML format, often called a "profile". This file will specify all the necessities of the cluster configuration so that Snakemake can submit jobs on your behalf as governed by the workflow. Create a folder called `profiles` 
 
@@ -106,11 +104,11 @@ This part can be omitted if you don't need snakemake to move files in or out of 
 
 - `shared-fs-usage` is a list of permissions/specifications for how Snakemake can interact with the filesystem. The options shown in the example above (`persistence`, `software-deployment`, `sources`, and `sources-cache` ) are necessary for Snakemake automating input/output of the `home2` (or other) directory. Unfortunately, the Snakemake documentation on these parameters are lacking, so there isn't more to say about it until that information becomes publicly available.
 
-# 3. Prepare the working directory
+## 3. Prepare the working directory
 
 At this point, you should have a `profiles/config.yaml` in your working directory. Keep in mind that the folder can be named anything, not specifically `profiles`, but the config file **has** to be named `config.yaml`.
 
-# 4. Run the workflow
+## 4. Run the workflow
 
 How you will invoke Snakemake is specific to your workflow, but a typical invocation of Snakemake could look like this:
 

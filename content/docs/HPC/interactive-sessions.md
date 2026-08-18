@@ -5,15 +5,12 @@ sidebar:
   open: true
 ---
 
-# Accessing files from `cbsunt246` within a script or interactive session on the cluster
-
+You may be interested in accessing files from `cbsunt246` within a script or interactive session on the cluster.
 The old `cbsunt246` server has already been mounted onto the new
 `cbsubscb16` cluster server. To access any file, just use the prefix
 `/fs/cbsunt246` before the rest of the path `/workdir/...`
 
-Ex: accessing a `cbsunt246` file within an `salloc` interactive session
-
-```bash
+```bash {filename="'salloc' interactive session"}
 # log into the cluster
 ssh ikk23@cbsulogin2.tc.cornell.edu
 
@@ -36,9 +33,7 @@ exit
 Note: you might get the message that the server has already been
 mounted.
 
-Ex: accessing a `cbsunt246` file within a SLURM script.
-
-```bash {filename="trial_job.sh"}
+```bash {filename="accessing a cbsunt246 file with SLURM script 'trial_job.sh'"}
 #! /usr/bin/env bash
 
 ## #SBATCH --ntasks=1
