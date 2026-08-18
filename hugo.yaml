@@ -18,9 +18,6 @@ markup:
 
 menu:
   main:
-    - name: User Guide
-      pageRef: /docs
-      weight: 1
     - name: Lab Website
       url: "https://therkildsen-lab.github.io/"
       weight: 2
@@ -45,7 +42,7 @@ params:
     logo:
         path: images/logo.png
         dark: images/logo.png
-        link: /
+        link: /user-guide/docs
         width: 40
         height: 40
   footer:

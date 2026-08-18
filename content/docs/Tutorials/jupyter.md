@@ -16,7 +16,7 @@ meaning outputs can be rendered without having to run anything again to see them
 The actual wild idea was that, if that Notebook (or those Notebooks) are already nicely formatted with
 descriptive text, code blocks, results, etc., and going into a GitHub repository anyway, why not do a
 civic duty to yourself and fellow researchers by building it into a static website
-([example](https://pdimens.github.io/haplotagging_simulations/)). We talk a lot about
+([example](https://pdimens.github.io/LRInversionSimulations/)). We talk a lot about
 transparency, etc., and this is a way to actually work towards being better at transparency.
 
 ## What you need

@@ -1,17 +1,13 @@
 ---
-title: Therkildsen Lab User-Guide
 toc: false
 ---
 
-Welcome to the Therkildsen Lab repository for useful information regarding computational resources and guidelines. Feel free to navigate the site or use the Search bar to find a relevant topic.
 
-Topics that should be addressed or changes needed to be made (aka "TODOs") can be logged via [GitHub Issues for this repository](https://github.com/therkildsen-lab/user-guide/issues). Please provide all the necessary information when submitting this way and, if possible, assign someone to the Issue.
+{{< hextra/hero-container image="images/logo.png" >}}
+  {{< hextra/hero-headline >}}Therkildsen Lab User-Guide{{< /hextra/hero-headline >}}
+  {{< hextra/hero-subtitle >}}
+  A living document of how to do things, born from exhaustive trial and error
+{{< /hextra/hero-subtitle >}}
+{{< /hextra/hero-container >}}
 
-## How to add to these docs
-The repository is setup to automagically build and deploy this website on `push` events to the repository, meaning all you need to do is write/modify files in the repo and the rest is taken care of. This site is built using the Hextra theme via Hugo, which enables special syntax to do nice things. It would be useful to read the [Hextra documentation](https://imfing.github.io/hextra/docs/guide/markdown/) to get a handle on how to use these great features to make the documentation more approachable.
-
-## Explore
-
-{{< cards >}}
-  {{< card link="docs" title="User Guide" icon="book-open" >}}
-{{< /cards >}}
+{{< hextra/hero-button text="Get Started" link="docs" >}} 
