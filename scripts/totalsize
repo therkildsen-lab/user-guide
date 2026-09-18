@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+## author: Pavel Dimens, 2026
+## usage: totalsize .ext <depth>
+## example: totalsize .fasta 3
+
+DEPTHARG=""
+
+if [ ! -z "$2" ]; then
+    DEPTHARG="-maxdepth ${2}"
+fi
+
+find . $DEPTHARG -type f -name "*${1}" -exec du -ch {} + | grep total$
