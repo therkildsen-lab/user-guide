@@ -48,19 +48,17 @@ source ~/.bashrc
 
 ## Useful scripts
 This is a non-exhaustive list of scripts that might useful to add to your user account. The
-scripts live in this repository under the `scripts/` directory.
+scripts live in this repository under the [scripts/](https://github.com/therkildsen-lab/user-guide/tree/main/scripts) directory.
 
 ### disk space by file type
-Purpose: get the total amount of disk space occupied by files of a given file type in the current directory.
-
-Dependencies: None
-
-Usage: Automatically searches recursively in the current directory. Limit recursion depth with optional `<depth>` argument.
-```bash
-totalsize .ext <depth>
-```
-
-Example:
-```bash
-totalsize .vcf
-```
+- Name: [totalsize](https://github.com/therkildsen-lab/user-guide/blob/main/scripts/totalsize)
+- Purpose: Lets you get the total amount of disk space occupied by files of a given file type in the current directory.
+- Dependencies: None
+- Usage: Automatically searches recursively in the current directory. Limit recursion depth with optional `<depth>` argument.
+  ```bash
+  totalsize .ext <depth>
+  ```
+- Example:
+  ```bash
+  totalsize .vcf
+  ```
