@@ -36,11 +36,11 @@ mounted.
 ```bash {filename="accessing a cbsunt246 file with SLURM script 'trial_job.sh'"}
 #! /usr/bin/env bash
 
-## #SBATCH --ntasks=1
-## #SBATCH --mem=1G
-## #SBATCH --partition=short
-## #SBATCH --job-name=trial_job
-## #SBATCH --output=trial_job.txt
+#SBATCH --ntasks=1
+#SBATCH --mem=1G
+#SBATCH --partition=short
+#SBATCH --job-name=trial_job
+#SBATCH --output=trial_job.txt
 
 # Make temporary working directory
 USER=ikk23

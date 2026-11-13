@@ -110,10 +110,10 @@ In the example below, `simple_example.sh` merges 365 fasta files into 1.
 
 ```bash {filename="simple_example.sh"}
 #! /usr/bin/env bash
-## #SBATCH --time=10:00
-## #SBATCH --partition=short
-## #SBATCH --job-name=simple_job
-## #SBATCH --output=simple_job.out
+#SBATCH --time=10:00
+#SBATCH --partition=short
+#SBATCH --job-name=simple_job
+#SBATCH --output=simple_job.out
 
 # Create working directory
 WORKDIR=/workdir/$USER/$SLURM_JOB_ID

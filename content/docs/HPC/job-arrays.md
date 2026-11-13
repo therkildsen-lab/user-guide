@@ -34,12 +34,12 @@ Here is an example running `SLiM` jobs on the cluster
 
 ```bash {filename="slim_job.sh"}
 #! /usr/bin/env bash
-## #SBATCH --ntasks=1
-## #SBATCH --mem=1000
-## #SBATCH --partition=regular
-## #SBATCH --job-name=slim_job
-## #SBATCH --output=slim_job.out
-## #SBATCH --array=1-7
+#SBATCH --ntasks=1
+#SBATCH --mem=1000
+#SBATCH --partition=regular
+#SBATCH --job-name=slim_job
+#SBATCH --output=slim_job.out
+#SBATCH --array=1-7
 
 # Run 7 different SLiM jobs in parallel
 # The parameters for each array job are set by the text file
